@@ -1,9 +1,9 @@
 /*
  * File:   main.c
- * Author: ENTER GROUP MEMBER NAME(S) HERE
+ * Author: Lucas Zenha, Johan Yap, Joshua Prud'Homme
  *
  * Created FOR ENCM 511
- * PLEASE ADD DATE CREATED HERE: 2025-XX-XX
+ * 2026/09/15
  */
 
 // FSEC
