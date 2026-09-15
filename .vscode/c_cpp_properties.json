@@ -1,18 +1,18 @@
 {
-  "configurations": [
-    {
-      "name": "windows-gcc-x64",
-      "includePath": [
-        "${workspaceFolder}/**"
-      ],
-      "compilerPath": "gcc",
-      "cStandard": "${default}",
-      "cppStandard": "${default}",
-      "intelliSenseMode": "windows-gcc-x64",
-      "compilerArgs": [
-        ""
-      ]
-    }
-  ],
-  "version": 4
+    "configurations": [
+        {
+            "name": "windows-gcc-x64",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "C:\\Program Files\\Microchip\\xc16\\v2.10\\support\\PIC24F/**",
+                "C:\\Program Files\\Microchip\\xc16\\v2.10\\support\\generic\\h",
+                "C:\\Program Files\\Microchip\\xc16\\v2.10\\include/**"
+            ],
+            "cStandard": "${default}",
+            "cppStandard": "${default}",
+            "intelliSenseMode": "windows-gcc-x64",
+            "compilerPath": "C:/Program Files/Microchip/xc16/v2.10/bin/xc16-gcc.exe"
+        }
+    ],
+    "version": 4
 }

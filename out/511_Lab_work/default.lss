@@ -1,0 +1,931 @@
+
+default.elf:     file format elf32-pic30
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn  Flags
+  0 .ivt._ADC1Interrupt 00000002  0000002e  0000002e  00000110  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+  1 .ivt._AddressError 00000002  00000006  00000006  000000c0  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+  2 .ivt._CCP1Interrupt 00000002  00000092  00000092  000001d8  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+  3 .ivt._CCP2Interrupt 00000002  00000094  00000094  000001dc  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+  4 .ivt._CCP3Interrupt 00000002  000000d0  000000d0  00000254  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+  5 .ivt._CCP4Interrupt 00000002  000000d2  000000d2  00000258  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+  6 .ivt._CCT1Interrupt 00000002  000000de  000000de  00000270  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+  7 .ivt._CCT2Interrupt 00000002  000000e0  000000e0  00000274  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+  8 .ivt._CCT3Interrupt 00000002  0000006a  0000006a  00000188  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+  9 .ivt._CCT4Interrupt 00000002  0000006c  0000006c  0000018c  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 10 .ivt._CLC1Interrupt 00000002  000000d4  000000d4  0000025c  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 11 .ivt._CLC2Interrupt 00000002  000000d6  000000d6  00000260  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 12 .ivt._CRCInterrupt 00000002  0000009a  0000009a  000001e8  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 13 .ivt._CTMUInterrupt 00000002  000000ae  000000ae  00000210  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 14 .ivt._CompInterrupt 00000002  00000038  00000038  00000124  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 15 .ivt._DMA0Interrupt 00000002  0000001c  0000001c  000000ec  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 16 .ivt._DMA1Interrupt 00000002  00000030  00000030  00000114  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 17 .ivt._DMA2Interrupt 00000002  00000044  00000044  0000013c  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 18 .ivt._DMA3Interrupt 00000002  0000005c  0000005c  0000016c  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 19 .ivt._DMA4Interrupt 00000002  00000070  00000070  00000194  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 20 .ivt._DMA5Interrupt 00000002  0000008e  0000008e  000001d0  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 21 .ivt._ECCInterrupt 00000002  000000ec  000000ec  0000028c  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 22 .ivt._FSTInterrupt 00000002  000000e8  000000e8  00000284  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 23 .ivt._GeneralError 00000002  00000010  00000010  000000d4  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 24 .ivt._I2C1BCInterrupt 00000002  000000bc  000000bc  0000022c  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 25 .ivt._I2C2BCInterrupt 00000002  000000be  000000be  00000230  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 26 .ivt._I2C3BCInterrupt 00000002  000000ee  000000ee  00000290  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 27 .ivt._IC1Interrupt 00000002  00000016  00000016  000000e0  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 28 .ivt._IC2Interrupt 00000002  0000001e  0000001e  000000f0  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 29 .ivt._IC3Interrupt 00000002  0000005e  0000005e  00000170  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 30 .ivt._INT0Interrupt 00000002  00000014  00000014  000000dc  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 31 .ivt._INT1Interrupt 00000002  0000003c  0000003c  0000012c  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 32 .ivt._INT2Interrupt 00000002  0000004e  0000004e  00000150  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 33 .ivt._INT3Interrupt 00000002  0000007e  0000007e  000001b0  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 34 .ivt._INT4Interrupt 00000002  00000080  00000080  000001b4  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 35 .ivt._IOCInterrupt 00000002  0000003a  0000003a  00000128  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 36 .ivt._Interrupt100 00000002  000000dc  000000dc  0000026c  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 37 .ivt._Interrupt103 00000002  000000e2  000000e2  00000278  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 38 .ivt._Interrupt104 00000002  000000e4  000000e4  0000027c  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 39 .ivt._Interrupt105 00000002  000000e6  000000e6  00000280  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 40 .ivt._Interrupt107 00000002  000000ea  000000ea  00000288  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 41 .ivt._Interrupt111 00000002  000000f2  000000f2  00000298  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 42 .ivt._Interrupt112 00000002  000000f4  000000f4  0000029c  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 43 .ivt._Interrupt113 00000002  000000f6  000000f6  000002a0  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 44 .ivt._Interrupt114 00000002  000000f8  000000f8  000002a4  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 45 .ivt._Interrupt115 00000002  000000fa  000000fa  000002a8  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 46 .ivt._Interrupt116 00000002  000000fc  000000fc  000002ac  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 47 .ivt._Interrupt21 00000002  0000003e  0000003e  00000130  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 48 .ivt._Interrupt22 00000002  00000040  00000040  00000134  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 49 .ivt._Interrupt23 00000002  00000042  00000042  00000138  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 50 .ivt._Interrupt26 00000002  00000048  00000048  00000144  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 51 .ivt._Interrupt27 00000002  0000004a  0000004a  00000148  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 52 .ivt._Interrupt28 00000002  0000004c  0000004c  0000014c  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 53 .ivt._Interrupt34 00000002  00000058  00000058  00000164  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 54 .ivt._Interrupt35 00000002  0000005a  0000005a  00000168  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 55 .ivt._Interrupt38 00000002  00000060  00000060  00000174  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 56 .ivt._Interrupt39 00000002  00000062  00000062  00000178  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 57 .ivt._Interrupt40 00000002  00000064  00000064  0000017c  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 58 .ivt._Interrupt47 00000002  00000072  00000072  00000198  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 59 .ivt._Interrupt48 00000002  00000074  00000074  0000019c  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 60 .ivt._Interrupt51 00000002  0000007a  0000007a  000001a8  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 61 .ivt._Interrupt52 00000002  0000007c  0000007c  000001ac  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 62 .ivt._Interrupt55 00000002  00000082  00000082  000001b8  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 63 .ivt._Interrupt56 00000002  00000084  00000084  000001bc  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 64 .ivt._Interrupt57 00000002  00000086  00000086  000001c0  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 65 .ivt._Interrupt68 00000002  0000009c  0000009c  000001ec  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 66 .ivt._Interrupt69 00000002  0000009e  0000009e  000001f0  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 67 .ivt._Interrupt70 00000002  000000a0  000000a0  000001f4  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 68 .ivt._Interrupt71 00000002  000000a2  000000a2  000001f8  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 69 .ivt._Interrupt73 00000002  000000a6  000000a6  00000200  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 70 .ivt._Interrupt74 00000002  000000a8  000000a8  00000204  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 71 .ivt._Interrupt75 00000002  000000aa  000000aa  00000208  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 72 .ivt._Interrupt76 00000002  000000ac  000000ac  0000020c  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 73 .ivt._Interrupt78 00000002  000000b0  000000b0  00000214  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 74 .ivt._Interrupt79 00000002  000000b2  000000b2  00000218  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 75 .ivt._Interrupt80 00000002  000000b4  000000b4  0000021c  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 76 .ivt._Interrupt81 00000002  000000b6  000000b6  00000220  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 77 .ivt._Interrupt82 00000002  000000b8  000000b8  00000224  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 78 .ivt._Interrupt83 00000002  000000ba  000000ba  00000228  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 79 .ivt._Interrupt86 00000002  000000c0  000000c0  00000234  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 80 .ivt._Interrupt87 00000002  000000c2  000000c2  00000238  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 81 .ivt._Interrupt88 00000002  000000c4  000000c4  0000023c  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 82 .ivt._Interrupt89 00000002  000000c6  000000c6  00000240  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 83 .ivt._Interrupt92 00000002  000000cc  000000cc  0000024c  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 84 .ivt._Interrupt93 00000002  000000ce  000000ce  00000250  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 85 .ivt._Interrupt98 00000002  000000d8  000000d8  00000264  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 86 .ivt._Interrupt99 00000002  000000da  000000da  00000268  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 87 .ivt._JTAGInterrupt 00000002  000000fe  000000fe  000002b0  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 88 .ivt._LVDInterrupt 00000002  000000a4  000000a4  000001fc  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 89 .ivt._MI2C1Interrupt 00000002  00000036  00000036  00000120  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 90 .ivt._MI2C2Interrupt 00000002  00000078  00000078  000001a4  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 91 .ivt._MathError 00000002  0000000c  0000000c  000000cc  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 92 .ivt._NVMError 00000002  00000008  00000008  000000c4  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 93 .ivt._NVMInterrupt 00000002  00000032  00000032  00000118  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 94 .ivt._OC1Interrupt 00000002  00000018  00000018  000000e4  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 95 .ivt._OC2Interrupt 00000002  00000020  00000020  000000f4  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 96 .ivt._OC3Interrupt 00000002  00000046  00000046  00000140  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 97 .ivt._OC5Interrupt 00000002  00000066  00000066  00000180  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 98 .ivt._OC6Interrupt 00000002  00000068  00000068  00000184  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+ 99 .ivt._OscillatorFail 00000002  00000004  00000004  000000bc  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+100 .ivt._PMPInterrupt 00000002  0000006e  0000006e  00000190  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+101 .ivt._RTCCInterrupt 00000002  00000090  00000090  000001d4  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+102 .ivt._RTCCTSInterrupt 00000002  000000f0  000000f0  00000294  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+103 .ivt._ReservedTrap5 00000002  0000000e  0000000e  000000d0  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+104 .ivt._ReservedTrap7 00000002  00000012  00000012  000000d8  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+105 .ivt._SI2C1Interrupt 00000002  00000034  00000034  0000011c  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+106 .ivt._SI2C2Interrupt 00000002  00000076  00000076  000001a0  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+107 .ivt._SPI1Interrupt 00000002  00000026  00000026  00000100  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+108 .ivt._SPI1RXInterrupt 00000002  00000088  00000088  000001c4  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+109 .ivt._SPI1TXInterrupt 00000002  00000028  00000028  00000104  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+110 .ivt._SPI2Interrupt 00000002  00000054  00000054  0000015c  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+111 .ivt._SPI2RXInterrupt 00000002  0000008a  0000008a  000001c8  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+112 .ivt._SPI2TXInterrupt 00000002  00000056  00000056  00000160  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+113 .ivt._SPI3Interrupt 00000002  000000c8  000000c8  00000244  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+114 .ivt._SPI3RXInterrupt 00000002  0000008c  0000008c  000001cc  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+115 .ivt._SPI3TXInterrupt 00000002  000000ca  000000ca  00000248  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+116 .ivt._StackError 00000002  0000000a  0000000a  000000c8  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+117 .ivt._T1Interrupt 00000002  0000001a  0000001a  000000e8  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+118 .ivt._T2Interrupt 00000002  00000022  00000022  000000f8  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+119 .ivt._T3Interrupt 00000002  00000024  00000024  000000fc  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+120 .ivt._U1ErrInterrupt 00000002  00000096  00000096  000001e0  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+121 .ivt._U1RXInterrupt 00000002  0000002a  0000002a  00000108  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+122 .ivt._U1TXInterrupt 00000002  0000002c  0000002c  0000010c  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+123 .ivt._U2ErrInterrupt 00000002  00000098  00000098  000001e4  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+124 .ivt._U2RXInterrupt 00000002  00000050  00000050  00000154  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+125 .ivt._U2TXInterrupt 00000002  00000052  00000052  00000158  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+126 .reset        00000004  00000000  00000000  000000b4  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+127 .text         0000010a  00000100  00000100  000002b4  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+128 __FSEC        00000002  0002af00  0002af00  000004d0  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+129 .debug_info   00000135  00000000  00000000  000004f0  2**0  CONTENTS, DEBUGGING, ABSOLUTE
+130 .debug_abbrev 00000034  00000000  00000000  0000075a  2**0  CONTENTS, DEBUGGING, ABSOLUTE
+131 .debug_line   0000005e  00000000  00000000  000007c2  2**0  CONTENTS, DEBUGGING, ABSOLUTE
+132 .debug_frame  0000002e  00000000  00000000  0000087e  2**0  CONTENTS, DEBUGGING, ABSOLUTE
+133 .debug_pubnames 0000001b  00000000  00000000  000008da  2**0  CONTENTS, DEBUGGING, ABSOLUTE
+134 .debug_aranges 00000018  00000000  00000000  00000910  2**0  CONTENTS, DEBUGGING, ABSOLUTE
+135 .debug_pubtypes 00000012  00000018  00000018  00000940  2**0  CONTENTS, DEBUGGING, ABSOLUTE
+136 __c30_signature 00000012  0000002a  0000002a  00000964  2**0  CONTENTS, DEBUGGING, ABSOLUTE
+137 .config_ALTI2C1 00000002  0002af2c  0002af2c  000004ec  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+138 .config_JTAGEN 00000002  0002af28  0002af28  000004e8  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+139 .config_DNVPEN 00000002  0002af24  0002af24  000004e4  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+140 .config_WDTCLK 00000002  0002af20  0002af20  000004e0  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+141 .config_FCKSM 00000002  0002af1c  0002af1c  000004dc  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+142 .config_IESO  00000002  0002af18  0002af18  000004d8  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+143 .config_BSLIM 00000002  0002af10  0002af10  000004d4  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+144 .text         00000004  0000020a  0000020a  000004c8  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+Disassembly of section .ivt._ADC1Interrupt:
+
+0000002e <.ivt._ADC1Interrupt>:
+  2e:	04 02 00    	nop       
+Disassembly of section .ivt._AddressError:
+
+00000006 <.ivt._AddressError>:
+   6:	04 02 00    	nop       
+Disassembly of section .ivt._CCP1Interrupt:
+
+00000092 <.ivt._CCP1Interrupt>:
+  92:	04 02 00    	nop       
+Disassembly of section .ivt._CCP2Interrupt:
+
+00000094 <.ivt._CCP2Interrupt>:
+  94:	04 02 00    	nop       
+Disassembly of section .ivt._CCP3Interrupt:
+
+000000d0 <.ivt._CCP3Interrupt>:
+  d0:	04 02 00    	nop       
+Disassembly of section .ivt._CCP4Interrupt:
+
+000000d2 <.ivt._CCP4Interrupt>:
+  d2:	04 02 00    	nop       
+Disassembly of section .ivt._CCT1Interrupt:
+
+000000de <.ivt._CCT1Interrupt>:
+  de:	04 02 00    	nop       
+Disassembly of section .ivt._CCT2Interrupt:
+
+000000e0 <.ivt._CCT2Interrupt>:
+  e0:	04 02 00    	nop       
+Disassembly of section .ivt._CCT3Interrupt:
+
+0000006a <.ivt._CCT3Interrupt>:
+  6a:	04 02 00    	nop       
+Disassembly of section .ivt._CCT4Interrupt:
+
+0000006c <.ivt._CCT4Interrupt>:
+  6c:	04 02 00    	nop       
+Disassembly of section .ivt._CLC1Interrupt:
+
+000000d4 <.ivt._CLC1Interrupt>:
+  d4:	04 02 00    	nop       
+Disassembly of section .ivt._CLC2Interrupt:
+
+000000d6 <.ivt._CLC2Interrupt>:
+  d6:	04 02 00    	nop       
+Disassembly of section .ivt._CRCInterrupt:
+
+0000009a <.ivt._CRCInterrupt>:
+  9a:	04 02 00    	nop       
+Disassembly of section .ivt._CTMUInterrupt:
+
+000000ae <.ivt._CTMUInterrupt>:
+  ae:	04 02 00    	nop       
+Disassembly of section .ivt._CompInterrupt:
+
+00000038 <.ivt._CompInterrupt>:
+  38:	04 02 00    	nop       
+Disassembly of section .ivt._DMA0Interrupt:
+
+0000001c <.ivt._DMA0Interrupt>:
+  1c:	04 02 00    	nop       
+Disassembly of section .ivt._DMA1Interrupt:
+
+00000030 <.ivt._DMA1Interrupt>:
+  30:	04 02 00    	nop       
+Disassembly of section .ivt._DMA2Interrupt:
+
+00000044 <.ivt._DMA2Interrupt>:
+  44:	04 02 00    	nop       
+Disassembly of section .ivt._DMA3Interrupt:
+
+0000005c <.ivt._DMA3Interrupt>:
+  5c:	04 02 00    	nop       
+Disassembly of section .ivt._DMA4Interrupt:
+
+00000070 <.ivt._DMA4Interrupt>:
+  70:	04 02 00    	nop       
+Disassembly of section .ivt._DMA5Interrupt:
+
+0000008e <.ivt._DMA5Interrupt>:
+  8e:	04 02 00    	nop       
+Disassembly of section .ivt._ECCInterrupt:
+
+000000ec <.ivt._ECCInterrupt>:
+  ec:	04 02 00    	nop       
+Disassembly of section .ivt._FSTInterrupt:
+
+000000e8 <.ivt._FSTInterrupt>:
+  e8:	04 02 00    	nop       
+Disassembly of section .ivt._GeneralError:
+
+00000010 <.ivt._GeneralError>:
+  10:	04 02 00    	nop       
+Disassembly of section .ivt._I2C1BCInterrupt:
+
+000000bc <.ivt._I2C1BCInterrupt>:
+  bc:	04 02 00    	nop       
+Disassembly of section .ivt._I2C2BCInterrupt:
+
+000000be <.ivt._I2C2BCInterrupt>:
+  be:	04 02 00    	nop       
+Disassembly of section .ivt._I2C3BCInterrupt:
+
+000000ee <.ivt._I2C3BCInterrupt>:
+  ee:	04 02 00    	nop       
+Disassembly of section .ivt._IC1Interrupt:
+
+00000016 <.ivt._IC1Interrupt>:
+  16:	04 02 00    	nop       
+Disassembly of section .ivt._IC2Interrupt:
+
+0000001e <.ivt._IC2Interrupt>:
+  1e:	04 02 00    	nop       
+Disassembly of section .ivt._IC3Interrupt:
+
+0000005e <.ivt._IC3Interrupt>:
+  5e:	04 02 00    	nop       
+Disassembly of section .ivt._INT0Interrupt:
+
+00000014 <.ivt._INT0Interrupt>:
+  14:	04 02 00    	nop       
+Disassembly of section .ivt._INT1Interrupt:
+
+0000003c <.ivt._INT1Interrupt>:
+  3c:	04 02 00    	nop       
+Disassembly of section .ivt._INT2Interrupt:
+
+0000004e <.ivt._INT2Interrupt>:
+  4e:	04 02 00    	nop       
+Disassembly of section .ivt._INT3Interrupt:
+
+0000007e <.ivt._INT3Interrupt>:
+  7e:	04 02 00    	nop       
+Disassembly of section .ivt._INT4Interrupt:
+
+00000080 <.ivt._INT4Interrupt>:
+  80:	04 02 00    	nop       
+Disassembly of section .ivt._IOCInterrupt:
+
+0000003a <.ivt._IOCInterrupt>:
+  3a:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt100:
+
+000000dc <.ivt._Interrupt100>:
+  dc:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt103:
+
+000000e2 <.ivt._Interrupt103>:
+  e2:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt104:
+
+000000e4 <.ivt._Interrupt104>:
+  e4:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt105:
+
+000000e6 <.ivt._Interrupt105>:
+  e6:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt107:
+
+000000ea <.ivt._Interrupt107>:
+  ea:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt111:
+
+000000f2 <.ivt._Interrupt111>:
+  f2:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt112:
+
+000000f4 <.ivt._Interrupt112>:
+  f4:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt113:
+
+000000f6 <.ivt._Interrupt113>:
+  f6:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt114:
+
+000000f8 <.ivt._Interrupt114>:
+  f8:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt115:
+
+000000fa <.ivt._Interrupt115>:
+  fa:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt116:
+
+000000fc <.ivt._Interrupt116>:
+  fc:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt21:
+
+0000003e <.ivt._Interrupt21>:
+  3e:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt22:
+
+00000040 <.ivt._Interrupt22>:
+  40:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt23:
+
+00000042 <.ivt._Interrupt23>:
+  42:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt26:
+
+00000048 <.ivt._Interrupt26>:
+  48:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt27:
+
+0000004a <.ivt._Interrupt27>:
+  4a:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt28:
+
+0000004c <.ivt._Interrupt28>:
+  4c:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt34:
+
+00000058 <.ivt._Interrupt34>:
+  58:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt35:
+
+0000005a <.ivt._Interrupt35>:
+  5a:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt38:
+
+00000060 <.ivt._Interrupt38>:
+  60:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt39:
+
+00000062 <.ivt._Interrupt39>:
+  62:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt40:
+
+00000064 <.ivt._Interrupt40>:
+  64:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt47:
+
+00000072 <.ivt._Interrupt47>:
+  72:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt48:
+
+00000074 <.ivt._Interrupt48>:
+  74:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt51:
+
+0000007a <.ivt._Interrupt51>:
+  7a:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt52:
+
+0000007c <.ivt._Interrupt52>:
+  7c:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt55:
+
+00000082 <.ivt._Interrupt55>:
+  82:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt56:
+
+00000084 <.ivt._Interrupt56>:
+  84:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt57:
+
+00000086 <.ivt._Interrupt57>:
+  86:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt68:
+
+0000009c <.ivt._Interrupt68>:
+  9c:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt69:
+
+0000009e <.ivt._Interrupt69>:
+  9e:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt70:
+
+000000a0 <.ivt._Interrupt70>:
+  a0:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt71:
+
+000000a2 <.ivt._Interrupt71>:
+  a2:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt73:
+
+000000a6 <.ivt._Interrupt73>:
+  a6:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt74:
+
+000000a8 <.ivt._Interrupt74>:
+  a8:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt75:
+
+000000aa <.ivt._Interrupt75>:
+  aa:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt76:
+
+000000ac <.ivt._Interrupt76>:
+  ac:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt78:
+
+000000b0 <.ivt._Interrupt78>:
+  b0:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt79:
+
+000000b2 <.ivt._Interrupt79>:
+  b2:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt80:
+
+000000b4 <.ivt._Interrupt80>:
+  b4:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt81:
+
+000000b6 <.ivt._Interrupt81>:
+  b6:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt82:
+
+000000b8 <.ivt._Interrupt82>:
+  b8:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt83:
+
+000000ba <.ivt._Interrupt83>:
+  ba:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt86:
+
+000000c0 <.ivt._Interrupt86>:
+  c0:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt87:
+
+000000c2 <.ivt._Interrupt87>:
+  c2:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt88:
+
+000000c4 <.ivt._Interrupt88>:
+  c4:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt89:
+
+000000c6 <.ivt._Interrupt89>:
+  c6:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt92:
+
+000000cc <.ivt._Interrupt92>:
+  cc:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt93:
+
+000000ce <.ivt._Interrupt93>:
+  ce:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt98:
+
+000000d8 <.ivt._Interrupt98>:
+  d8:	04 02 00    	nop       
+Disassembly of section .ivt._Interrupt99:
+
+000000da <.ivt._Interrupt99>:
+  da:	04 02 00    	nop       
+Disassembly of section .ivt._JTAGInterrupt:
+
+000000fe <.ivt._JTAGInterrupt>:
+  fe:	04 02 00    	nop       
+Disassembly of section .ivt._LVDInterrupt:
+
+000000a4 <.ivt._LVDInterrupt>:
+  a4:	04 02 00    	nop       
+Disassembly of section .ivt._MI2C1Interrupt:
+
+00000036 <.ivt._MI2C1Interrupt>:
+  36:	04 02 00    	nop       
+Disassembly of section .ivt._MI2C2Interrupt:
+
+00000078 <.ivt._MI2C2Interrupt>:
+  78:	04 02 00    	nop       
+Disassembly of section .ivt._MathError:
+
+0000000c <.ivt._MathError>:
+   c:	04 02 00    	nop       
+Disassembly of section .ivt._NVMError:
+
+00000008 <.ivt._NVMError>:
+   8:	04 02 00    	nop       
+Disassembly of section .ivt._NVMInterrupt:
+
+00000032 <.ivt._NVMInterrupt>:
+  32:	04 02 00    	nop       
+Disassembly of section .ivt._OC1Interrupt:
+
+00000018 <.ivt._OC1Interrupt>:
+  18:	04 02 00    	nop       
+Disassembly of section .ivt._OC2Interrupt:
+
+00000020 <.ivt._OC2Interrupt>:
+  20:	04 02 00    	nop       
+Disassembly of section .ivt._OC3Interrupt:
+
+00000046 <.ivt._OC3Interrupt>:
+  46:	04 02 00    	nop       
+Disassembly of section .ivt._OC5Interrupt:
+
+00000066 <.ivt._OC5Interrupt>:
+  66:	04 02 00    	nop       
+Disassembly of section .ivt._OC6Interrupt:
+
+00000068 <.ivt._OC6Interrupt>:
+  68:	04 02 00    	nop       
+Disassembly of section .ivt._OscillatorFail:
+
+00000004 <.ivt._OscillatorFail>:
+   4:	04 02 00    	nop       
+Disassembly of section .ivt._PMPInterrupt:
+
+0000006e <.ivt._PMPInterrupt>:
+  6e:	04 02 00    	nop       
+Disassembly of section .ivt._RTCCInterrupt:
+
+00000090 <.ivt._RTCCInterrupt>:
+  90:	04 02 00    	nop       
+Disassembly of section .ivt._RTCCTSInterrupt:
+
+000000f0 <.ivt._RTCCTSInterrupt>:
+  f0:	04 02 00    	nop       
+Disassembly of section .ivt._ReservedTrap5:
+
+0000000e <.ivt._ReservedTrap5>:
+   e:	04 02 00    	nop       
+Disassembly of section .ivt._ReservedTrap7:
+
+00000012 <.ivt._ReservedTrap7>:
+  12:	04 02 00    	nop       
+Disassembly of section .ivt._SI2C1Interrupt:
+
+00000034 <.ivt._SI2C1Interrupt>:
+  34:	04 02 00    	nop       
+Disassembly of section .ivt._SI2C2Interrupt:
+
+00000076 <.ivt._SI2C2Interrupt>:
+  76:	04 02 00    	nop       
+Disassembly of section .ivt._SPI1Interrupt:
+
+00000026 <.ivt._SPI1Interrupt>:
+  26:	04 02 00    	nop       
+Disassembly of section .ivt._SPI1RXInterrupt:
+
+00000088 <.ivt._SPI1RXInterrupt>:
+  88:	04 02 00    	nop       
+Disassembly of section .ivt._SPI1TXInterrupt:
+
+00000028 <.ivt._SPI1TXInterrupt>:
+  28:	04 02 00    	nop       
+Disassembly of section .ivt._SPI2Interrupt:
+
+00000054 <.ivt._SPI2Interrupt>:
+  54:	04 02 00    	nop       
+Disassembly of section .ivt._SPI2RXInterrupt:
+
+0000008a <.ivt._SPI2RXInterrupt>:
+  8a:	04 02 00    	nop       
+Disassembly of section .ivt._SPI2TXInterrupt:
+
+00000056 <.ivt._SPI2TXInterrupt>:
+  56:	04 02 00    	nop       
+Disassembly of section .ivt._SPI3Interrupt:
+
+000000c8 <.ivt._SPI3Interrupt>:
+  c8:	04 02 00    	nop       
+Disassembly of section .ivt._SPI3RXInterrupt:
+
+0000008c <.ivt._SPI3RXInterrupt>:
+  8c:	04 02 00    	nop       
+Disassembly of section .ivt._SPI3TXInterrupt:
+
+000000ca <.ivt._SPI3TXInterrupt>:
+  ca:	04 02 00    	nop       
+Disassembly of section .ivt._StackError:
+
+0000000a <.ivt._StackError>:
+   a:	04 02 00    	nop       
+Disassembly of section .ivt._T1Interrupt:
+
+0000001a <.ivt._T1Interrupt>:
+  1a:	04 02 00    	nop       
+Disassembly of section .ivt._T2Interrupt:
+
+00000022 <.ivt._T2Interrupt>:
+  22:	04 02 00    	nop       
+Disassembly of section .ivt._T3Interrupt:
+
+00000024 <.ivt._T3Interrupt>:
+  24:	04 02 00    	nop       
+Disassembly of section .ivt._U1ErrInterrupt:
+
+00000096 <.ivt._U1ErrInterrupt>:
+  96:	04 02 00    	nop       
+Disassembly of section .ivt._U1RXInterrupt:
+
+0000002a <.ivt._U1RXInterrupt>:
+  2a:	04 02 00    	nop       
+Disassembly of section .ivt._U1TXInterrupt:
+
+0000002c <.ivt._U1TXInterrupt>:
+  2c:	04 02 00    	nop       
+Disassembly of section .ivt._U2ErrInterrupt:
+
+00000098 <.ivt._U2ErrInterrupt>:
+  98:	04 02 00    	nop       
+Disassembly of section .ivt._U2RXInterrupt:
+
+00000050 <.ivt._U2RXInterrupt>:
+  50:	04 02 00    	nop       
+Disassembly of section .ivt._U2TXInterrupt:
+
+00000052 <.ivt._U2TXInterrupt>:
+  52:	04 02 00    	nop       
+Disassembly of section .reset:
+
+00000000 <.reset>:
+   0:	00 01 04 00 00 00 00 	goto      0x100 <__reset>
+   3:	
+Disassembly of section .text:
+
+00000100 <__reset>:
+__resetPRI():
+ 100:	0f 80 20    	mov.w     #0x800, w15
+ 102:	0e 7f 24    	mov.w     #0x47f0, w14
+ 104:	0e 01 88    	mov.w     w14, 0x20
+ 106:	00 00 00    	nop       
+ 108:	00 00 20    	mov.w     #0x0, w0
+ 10a:	00 00 e0    	cp0.w     w0
+ 10c:	02 00 32    	bra       Z, 0x112 <CORCON_RESET>
+ 10e:	00 01 20    	mov.w     #0x10, w0
+ 110:	20 02 88    	mov.w     w0, 0x44
+
+00000112 <CORCON_RESET>:
+CORCON_RESET():
+ 112:	14 00 07    	rcall     0x13c <__psv_init>
+ 114:	79 00 07    	rcall     0x208 <__crt_start_mode> <__crt_start_mode_normal>
+ 116:	00 00 e0    	cp0.w     w0
+ 118:	03 00 3a    	bra       NZ, 0x120 <L11>
+ 11a:	00 00 20    	mov.w     #0x0, w0
+ 11c:	01 00 20    	mov.w     #0x0, w1
+ 11e:	02 00 37    	bra       0x124 <L21>
+
+00000120 <L11>:
+L11():
+ 120:	00 00 20    	mov.w     #0x0, w0
+ 122:	01 00 20    	mov.w     #0x0, w1
+
+00000124 <L21>:
+L21():
+ 124:	81 0f 70    	ior.w     w0, w1, [w15]
+ 126:	01 00 32    	bra       Z, 0x12a <L12>
+ 128:	14 00 07    	rcall     0x152 <__data_init> <__data_init_da>
+
+0000012a <L12>:
+L12():
+ 12a:	00 00 20    	mov.w     #0x0, w0
+ 12c:	00 00 e0    	cp0.w     w0
+ 12e:	02 00 32    	bra       Z, 0x134 <L13>
+ 130:	00 00 02 00 00 00 00 	call      0x0 <__reset-0x100>
+ 133:	
+
+00000134 <L13>:
+L13():
+ 134:	0a 02 02 00 00 00 00 	call      0x20a <_main>
+ 137:	
+ 138:	00 40 da    	break     
+ 13a:	00 00 fe    	reset     
+
+0000013c <__psv_init>:
+__psv_init():
+ 13c:	44 40 a9    	bclr.b    0x44, #0x2
+ 13e:	20 00 20    	mov.w     #0x2, w0
+ 140:	00 00 e0    	cp0.w     w0
+ 142:	03 00 32    	bra       Z, 0x14a <L14>
+ 144:	10 00 20    	mov.w     #0x1, w0
+ 146:	90 01 88    	mov.w     w0, 0x32
+ 148:	44 40 a8    	bset.b    0x44, #0x2
+
+0000014a <L14>:
+L14():
+ 14a:	00 00 06    	return    
+
+0000014c <__long_indirect_call>:
+__long_indirect_call():
+ 14c:	8a 1f 78    	mov.w     w10, [w15++]
+ 14e:	8b 1f 78    	mov.w     w11, [w15++]
+ 150:	00 00 06    	return    
+
+00000152 <__data_init>:
+__data_init():
+ 152:	a1 02 88    	mov.w     w1, 0x54
+ 154:	80 04 78    	mov.w     w0, w9
+ 156:	00 00 eb    	clr.w     w0
+ 158:	1f 00 37    	bra       0x198 <L41>
+
+0000015a <L11>:
+L11():
+ 15a:	e2 84 44    	add.w     w9, #0x2, w9
+ 15c:	54 a0 b4    	addc.w    0x54
+ 15e:	99 05 ba    	tblrdl.w  [w9], w11
+ 160:	e2 84 44    	add.w     w9, #0x2, w9
+ 162:	54 a0 b4    	addc.w    0x54
+ 164:	99 06 ba    	tblrdl.w  [w9], w13
+ 166:	e2 84 44    	add.w     w9, #0x2, w9
+ 168:	54 a0 b4    	addc.w    0x54
+ 16a:	00 06 eb    	clr.w     w12
+ 16c:	47 6f de    	lsr.w     w13, #0x7, w14
+ 16e:	fd 07 b2    	and.w     #0x7f, w13
+ 170:	ae 01 88    	mov.w     w14, 0x34
+ 172:	63 6c e1    	cp.b      w13, #0x3
+ 174:	03 00 3a    	bra       NZ, 0x17c <L21>
+ 176:	ea ff 07    	rcall     0x14c <__long_indirect_call>
+ 178:	00 00 eb    	clr.w     w0
+ 17a:	0e 00 37    	bra       0x198 <L41>
+
+0000017c <L21>:
+L21():
+ 17c:	60 6c e1    	cp.b      w13, #0x0
+ 17e:	08 00 3a    	bra       NZ, 0x190 <L22>
+
+00000180 <L91>:
+L91():
+ 180:	00 4d eb    	clr.b     [w10]
+ 182:	0a 05 e8    	inc.w     w10, w10
+ 184:	02 00 39    	bra       NC, 0x18a <L81>
+ 186:	34 20 ec    	inc.w     0x34
+ 188:	0a f0 a0    	bset.w    w10, #0xf
+
+0000018a <L81>:
+L81():
+ 18a:	8b 05 e9    	dec.w     w11, w11
+ 18c:	f9 ff 3e    	bra       GTU, 0x180 <L91>
+ 18e:	04 00 37    	bra       0x198 <L41>
+
+00000190 <L22>:
+L22():
+ 190:	61 68 e1    	cp.w      w13, #0x1
+ 192:	01 00 32    	bra       Z, 0x196 <L31>
+ 194:	00 86 eb    	setm.w    w12
+
+00000196 <L31>:
+L31():
+ 196:	0b 00 07    	rcall     0x1ae <L13> <__memcpyd3extended>
+
+00000198 <L41>:
+L41():
+ 198:	19 c7 ba    	tblrdh.b  [w9], w14
+ 19a:	19 05 ba    	tblrdl.w  [w9], w10
+ 19c:	0e 04 e0    	cp0.b     w14
+ 19e:	03 00 3a    	bra       NZ, 0x1a6 <L12>
+ 1a0:	0a 00 e0    	cp0.w     w10
+ 1a2:	db ff 3a    	bra       NZ, 0x15a <L11>
+ 1a4:	00 00 06    	return    
+
+000001a6 <L12>:
+L12():
+ 1a6:	fe 07 b2    	and.w     #0x7f, w14
+ 1a8:	ae 02 88    	mov.w     w14, 0x54
+ 1aa:	8a 04 78    	mov.w     w10, w9
+ 1ac:	f5 ff 37    	bra       0x198 <L41>
+
+000001ae <L13>:
+L13():
+ 1ae:	0c d0 a3    	btst.c    w12, #0xd
+ 1b0:	e2 0f 4d    	addc.w    w10, #0x2, [w15]
+ 1b2:	1c 00 39    	bra       NC, 0x1ec <L23>
+ 1b4:	89 02 78    	mov.w     w9, w5
+ 1b6:	35 4d ba    	tblrdl.b  [w5++], [w10]
+ 1b8:	0a 05 e8    	inc.w     w10, w10
+ 1ba:	02 00 39    	bra       NC, 0x1c0 <L32>
+ 1bc:	34 20 ec    	inc.w     0x34
+ 1be:	0a f0 a0    	bset.w    w10, #0xf
+
+000001c0 <L32>:
+L32():
+ 1c0:	8b 05 e9    	dec.w     w11, w11
+ 1c2:	0f 00 32    	bra       Z, 0x1e2 <L42>
+ 1c4:	25 4d ba    	tblrdl.b  [w5--], [w10]
+ 1c6:	0a 05 e8    	inc.w     w10, w10
+ 1c8:	02 00 39    	bra       NC, 0x1ce <L33>
+ 1ca:	34 20 ec    	inc.w     0x34
+ 1cc:	0a f0 a0    	bset.w    w10, #0xf
+
+000001ce <L33>:
+L33():
+ 1ce:	8b 05 e9    	dec.w     w11, w11
+ 1d0:	08 00 32    	bra       Z, 0x1e2 <L42>
+ 1d2:	0c 00 e0    	cp0.w     w12
+ 1d4:	06 00 32    	bra       Z, 0x1e2 <L42>
+ 1d6:	15 cd ba    	tblrdh.b  [w5], [w10]
+ 1d8:	0a 05 e8    	inc.w     w10, w10
+ 1da:	02 00 39    	bra       NC, 0x1e0 <L34>
+ 1dc:	34 20 ec    	inc.w     0x34
+ 1de:	0a f0 a0    	bset.w    w10, #0xf
+
+000001e0 <L34>:
+L34():
+ 1e0:	8b 05 e9    	dec.w     w11, w11
+
+000001e2 <L42>:
+L42():
+ 1e2:	89 84 e8    	inc2.w    w9, w9
+ 1e4:	54 a0 b4    	addc.w    0x54
+ 1e6:	0b 00 e0    	cp0.w     w11
+ 1e8:	e2 ff 3a    	bra       NZ, 0x1ae <L13> <__memcpyd3extended>
+ 1ea:	00 00 06    	return    
+
+000001ec <L23>:
+L23():
+ 1ec:	99 02 ba    	tblrdl.w  [w9], w5
+ 1ee:	05 5d 78    	mov.b     w5, [w10++]
+ 1f0:	8b 05 e9    	dec.w     w11, w11
+ 1f2:	f7 ff 32    	bra       Z, 0x1e2 <L42>
+ 1f4:	c8 2a de    	lsr.w     w5, #0x8, w5
+ 1f6:	05 5d 78    	mov.b     w5, [w10++]
+ 1f8:	8b 05 e9    	dec.w     w11, w11
+ 1fa:	f3 ff 32    	bra       Z, 0x1e2 <L42>
+ 1fc:	0c 00 e0    	cp0.w     w12
+ 1fe:	f1 ff 32    	bra       Z, 0x1e2 <L42>
+ 200:	19 dd ba    	tblrdh.b  [w9], [w10++]
+ 202:	ee ff 37    	bra       0x1e0 <L34>
+
+00000204 <__DefaultInterrupt>:
+__DefaultInterrupt():
+ 204:	00 40 da    	break     
+ 206:	00 00 fe    	reset     
+
+00000208 <__crt_start_mode>:
+__crt_start_mode():
+ 208:	00 00 05    	retlw.w   #0x0, w0
+Disassembly of section __FSEC:
+
+0002af00 <__FSEC.sec>:
+__FSEC.sec():
+   2af00:	ff ff ff    	nopr      
+Disassembly of section .config_ALTI2C1:
+
+0002af2c <__config_ALTI2C1>:
+__config_ALTI2C1():
+   2af2c:	ff ff ff    	nopr      
+Disassembly of section .config_JTAGEN:
+
+0002af28 <__config_JTAGEN>:
+__config_JTAGEN():
+   2af28:	df ff ff    	nopr      
+Disassembly of section .config_DNVPEN:
+
+0002af24 <__config_DNVPEN>:
+__config_DNVPEN():
+   2af24:	ff ff ff    	nopr      
+Disassembly of section .config_WDTCLK:
+
+0002af20 <__config_WDTCLK>:
+__config_WDTCLK():
+   2af20:	df ff ff    	nopr      
+Disassembly of section .config_FCKSM:
+
+0002af1c <__config_FCKSM>:
+__config_FCKSM():
+   2af1c:	63 ff ff    	nopr      
+Disassembly of section .config_IESO:
+
+0002af18 <__config_IESO>:
+__config_IESO():
+   2af18:	08 ff ff    	nopr      
+Disassembly of section .config_BSLIM:
+
+0002af10 <__config_BSLIM>:
+__config_BSLIM():
+   2af10:	ff ff ff    	nopr      
+Disassembly of section .text:
+
+0000020a <_main>:
+main():
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:63
+
+#include "xc.h"
+
+
+int main(void) {
+ 20a:	00 00 fa    	lnk       #0x0
+
+0000020c <.L2>:
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:68
+    
+    
+    while(1){
+        
+    }
+ 20c:	ff ff 37    	bra       .

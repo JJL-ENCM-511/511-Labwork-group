@@ -1,0 +1,21 @@
+{
+    "version": 6,
+    "configurePresets": [
+        {
+            "name": "511_Lab_work_default_conf",
+            "binaryDir": "${fileDir}/../../../_build/511_Lab_work/default",
+            "generator": "Ninja",
+            "toolchainFile": "${fileDir}/.generated/toolchain.cmake",
+            "cacheVariables": {
+                "CMAKE_USER_MAKE_RULES_OVERRIDE": {
+                    "type": "FILEPATH",
+                    "value": "${fileDir}/.generated/overrides.cmake"
+                },
+                "CMAKE_EXPORT_COMPILE_COMMANDS": {
+                    "type": "BOOL",
+                    "value": "ON"
+                }
+            }
+        }
+    ]
+}

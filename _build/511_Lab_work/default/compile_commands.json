@@ -1,0 +1,8 @@
+[
+{
+  "directory": "C:/Users/prudh/MPLABProjects/511_Lab_work/_build/511_Lab_work/default",
+  "command": "\"c:\\Program Files\\Microchip\\xc16\\v2.10\\bin\\xc16-gcc.exe\" -DXPRJ_default=default -D__DEBUG -I\"c:/Program Files/Microchip/xc16/v2.10/support/PIC24F/h\" -x c -g -mcpu=24FJ256GA702 -O0 -msmart-io=1 -Wall -msfr-warn=off -o CMakeFiles\\A_511_Lab_work_default_default_XC16_compile.dir\\C_\\Users\\prudh\\MPLABProjects\\511_Lab_work\\main.c.o -c C:\\Users\\prudh\\MPLABProjects\\511_Lab_work\\main.c",
+  "file": "C:/Users/prudh/MPLABProjects/511_Lab_work/main.c",
+  "output": "C:/Users/prudh/MPLABProjects/511_Lab_work/_build/511_Lab_work/default/CMakeFiles/A_511_Lab_work_default_default_XC16_compile.dir/C_/Users/prudh/MPLABProjects/511_Lab_work/main.c.o"
+}
+]

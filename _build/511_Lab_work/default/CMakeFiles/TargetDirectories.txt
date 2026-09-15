@@ -1,0 +1,5 @@
+C:/Users/prudh/MPLABProjects/511_Lab_work/_build/511_Lab_work/default/CMakeFiles/A_511_Lab_work_default_default_XC16_compile.dir
+C:/Users/prudh/MPLABProjects/511_Lab_work/_build/511_Lab_work/default/CMakeFiles/511_Lab_work_default_image_oW2QlG9r.dir
+C:/Users/prudh/MPLABProjects/511_Lab_work/_build/511_Lab_work/default/CMakeFiles/511_Lab_work_default_Bin2Hex.dir
+C:/Users/prudh/MPLABProjects/511_Lab_work/_build/511_Lab_work/default/CMakeFiles/edit_cache.dir
+C:/Users/prudh/MPLABProjects/511_Lab_work/_build/511_Lab_work/default/CMakeFiles/rebuild_cache.dir
