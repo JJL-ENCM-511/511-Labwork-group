@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project>
-  <executable name="C:\Users\prudh\MPLABProjects\511_Lab_work\out\511_Lab_work\default.elf">
+  <executable name="C:\Users\prudh\MPLABProjects\511_Lab_work\out\511_Lab_work\production\default-production.elf">
     <memory name="data">
       <units>bytes</units>
       <length>16384</length>
@@ -11,8 +11,8 @@
     <memory name="program">
       <units>bytes</units>
       <length>263424</length>
-      <used>597</used>
-      <free>262827</free>
+      <used>603</used>
+      <free>262821</free>
     </memory>
   </executable>
 </project>

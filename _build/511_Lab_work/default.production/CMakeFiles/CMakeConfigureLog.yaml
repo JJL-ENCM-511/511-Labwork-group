@@ -185,7 +185,7 @@ events:
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
       
       The C compiler identification is GNU, found in:
-        C:/Users/prudh/MPLABProjects/511_Lab_work/_build/511_Lab_work/default/CMakeFiles/4.4.3/CompilerIdC/a.out
+        C:/Users/prudh/MPLABProjects/511_Lab_work/_build/511_Lab_work/default.production/CMakeFiles/4.4.3/CompilerIdC/a.out
       
   -
     kind: "find-v1"

@@ -59,11 +59,58 @@
 
 #include "xc.h"
 
+#define LED0 LATBbits.LATB5
+#define PB0 PORTBbits.RB8
+
+
+void ledOn()
+{
+    LED0 = 1;
+}
+
+void ledBlink(int delay, int in_delay)
+{
+    LED0 = 0;
+    for (int i = 0; i < delay ; i++)
+    {
+        for (int j = 0; j < in_delay; j++){}
+    }
+    LED0 = 1;
+    for (int i = 0; i < delay ; i++)
+    {
+        for (int j = 0; j < in_delay; j++){}
+    }
+    
+}
+
+void ledButtonOn()
+{
+    if (PB0 == 1)
+    {
+        LED0 = 0;
+    }
+    else
+    {
+        LED0 = 1;
+    }
+}
 
 int main(void) {
     
+    TRISBbits.TRISB5 = 0; //set RB5 as output
+    TRISBbits.TRISB8 = 1; //set RB8 as input
+    IOCPUBbits.CNPUB8 = 1; //activate pullup for RB8
     
-    while(1){
+    while(1)
+    {
+        //1 second
+        //ledBlink(10000, 50);
+
+        //0.25 second
+        //ledBlink(2500, 50);
+
+        //ledButtonOn();
+
         
     }
     

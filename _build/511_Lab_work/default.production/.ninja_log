@@ -1,0 +1,11 @@
+# ninja log v7
+32	301	8113003709657479	CMakeFiles/A_511_Lab_work_default_default_XC16_compile.dir/C_/Users/prudh/MPLABProjects/511_Lab_work/main.c.o	fb11c405d3598ffc
+303	1993	8113003712360626	C:/Users/prudh/MPLABProjects/511_Lab_work/out/511_Lab_work/production/default-production.elf	30a4b5cab5ba88ce
+1994	2057	8113003729273984	CMakeFiles/511_Lab_work_default_Bin2Hex	e96de27776eb228b
+1994	2057	8113003729273984	C:/Users/prudh/MPLABProjects/511_Lab_work/out/511_Lab_work/production/default-production.hex	e96de27776eb228b
+1994	2057	8113003729273984	C:/Users/prudh/MPLABProjects/511_Lab_work/_build/511_Lab_work/default.production/CMakeFiles/511_Lab_work_default_Bin2Hex	e96de27776eb228b
+35	305	8113004251961004	CMakeFiles/A_511_Lab_work_default_default_XC16_compile.dir/C_/Users/prudh/MPLABProjects/511_Lab_work/main.c.o	fb11c405d3598ffc
+305	2004	8113004254653692	C:/Users/prudh/MPLABProjects/511_Lab_work/out/511_Lab_work/production/default-production.elf	30a4b5cab5ba88ce
+2005	2070	8113004271649392	CMakeFiles/511_Lab_work_default_Bin2Hex	e96de27776eb228b
+2005	2070	8113004271649392	C:/Users/prudh/MPLABProjects/511_Lab_work/out/511_Lab_work/production/default-production.hex	e96de27776eb228b
+2005	2070	8113004271649392	C:/Users/prudh/MPLABProjects/511_Lab_work/_build/511_Lab_work/default.production/CMakeFiles/511_Lab_work_default_Bin2Hex	e96de27776eb228b

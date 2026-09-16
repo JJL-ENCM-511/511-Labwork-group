@@ -56,5 +56,13 @@
   "C_Cpp_Runner.showCompilationTime": false,
   "C_Cpp_Runner.useLinkTimeOptimization": false,
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
-  "cmake.sourceDirectory": "C:/Users/prudh/MPLABProjects/511_Lab_work/cmake/511_Lab_work/default"
+  "cmake.sourceDirectory": "C:/Users/prudh/MPLABProjects/511_Lab_work/cmake/511_Lab_work/default",
+  "mplab.clangd.compileCommandsDir": "${workspaceFolder}\\_build\\511_Lab_work\\default",
+  "memory-inspector.debugTypes": [
+    "arm-debugger",
+    "embedded-debug",
+    "gdb",
+    "gdbtarget",
+    "mplab-core-da"
+  ]
 }
