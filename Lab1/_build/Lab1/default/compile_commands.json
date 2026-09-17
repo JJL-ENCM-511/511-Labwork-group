@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/jyap/Documents/ENCM511_Labs/511-Labwork-group-/Lab1/_build/Lab1/default",
+  "command": "/opt/microchip/xc16/v2.10/bin/xc16-gcc -DXPRJ_default=default -D__DEBUG -x c -g -mcpu=24FJ256GA702 -O0 -msmart-io=1 -Wall -msfr-warn=off -mdfp=/home/jyap/.mchp_packs/Microchip/PIC24F-GA-GB_DFP/1.11.479/xc16 -o CMakeFiles/Lab1_default_default_XC16_compile.dir/home/jyap/Documents/ENCM511_Labs/511-Labwork-group-/Lab1/main.c.o -c /home/jyap/Documents/ENCM511_Labs/511-Labwork-group-/Lab1/main.c",
+  "file": "/home/jyap/Documents/ENCM511_Labs/511-Labwork-group-/Lab1/main.c",
+  "output": "/home/jyap/Documents/ENCM511_Labs/511-Labwork-group-/Lab1/_build/Lab1/default/CMakeFiles/Lab1_default_default_XC16_compile.dir/home/jyap/Documents/ENCM511_Labs/511-Labwork-group-/Lab1/main.c.o"
+}
+]
