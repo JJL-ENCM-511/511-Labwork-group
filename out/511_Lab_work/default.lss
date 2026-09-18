@@ -129,33 +129,33 @@ Idx Name          Size      VMA       LMA       File off  Algn  Flags
 123 .ivt._U2ErrInterrupt 00000002  00000098  00000098  00000204  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
 124 .ivt._U2RXInterrupt 00000002  00000050  00000050  00000174  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
 125 .ivt._U2TXInterrupt 00000002  00000052  00000052  00000178  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
-126 reserve_data_0x800 0000001c  00000800  00000800  00000740  2**1  ALLOC
-127 reserve_data_0x81c 00000002  0000081c  0000081c  00000740  2**1  ALLOC
-128 reserve_data_0x81e 00000002  0000081e  0000081e  00000740  2**1  ALLOC
-129 reserve_data_0x820 00000002  00000820  00000820  00000740  2**1  ALLOC
-130 reserve_data_0x822 00000002  00000822  00000822  00000740  2**1  ALLOC
-131 reserve_data_0x824 00000004  00000824  00000824  00000740  2**1  ALLOC
-132 reserve_data_0x82a 00000026  0000082a  0000082a  00000740  2**1  ALLOC
+126 reserve_data_0x800 0000001c  00000800  00000800  0000073c  2**1  ALLOC
+127 reserve_data_0x81c 00000002  0000081c  0000081c  0000073c  2**1  ALLOC
+128 reserve_data_0x81e 00000002  0000081e  0000081e  0000073c  2**1  ALLOC
+129 reserve_data_0x820 00000002  00000820  00000820  0000073c  2**1  ALLOC
+130 reserve_data_0x822 00000002  00000822  00000822  0000073c  2**1  ALLOC
+131 reserve_data_0x824 00000004  00000824  00000824  0000073c  2**1  ALLOC
+132 reserve_data_0x82a 00000026  0000082a  0000082a  0000073c  2**1  ALLOC
 133 .reset        00000004  00000000  00000000  000000d4  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
 134 .text         0000010a  00000100  00000100  000002d4  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
-135 __FSEC        00000002  0002af00  0002af00  00000740  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
-136 .debug_info   00000eb1  00000000  00000000  00000760  2**0  CONTENTS, DEBUGGING, ABSOLUTE
-137 .debug_abbrev 00000112  00000000  00000000  000024c2  2**0  CONTENTS, DEBUGGING, ABSOLUTE
-138 .debug_line   0000013b  00000000  00000000  000026e6  2**0  CONTENTS, DEBUGGING, ABSOLUTE
-139 .debug_frame  0000007c  00000000  00000000  0000295c  2**0  CONTENTS, DEBUGGING, ABSOLUTE
-140 .debug_str    00000047  00000000  00000000  00002a54  2**0  CONTENTS, DEBUGGING, ABSOLUTE
-141 .debug_pubnames 00000042  00000000  00000000  00002ae2  2**0  CONTENTS, DEBUGGING, ABSOLUTE
-142 .debug_aranges 00000018  00000000  00000000  00002b66  2**0  CONTENTS, DEBUGGING, ABSOLUTE
-143 .debug_pubtypes 000000fa  00000018  00000018  00002b96  2**0  CONTENTS, DEBUGGING, ABSOLUTE
-144 __c30_signature 00000012  00000112  00000112  00002d8a  2**0  CONTENTS, DEBUGGING, ABSOLUTE
-145 .config_ALTI2C1 00000002  0002af2c  0002af2c  0000075c  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
-146 .config_JTAGEN 00000002  0002af28  0002af28  00000758  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
-147 .config_DNVPEN 00000002  0002af24  0002af24  00000754  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
-148 .config_WDTCLK 00000002  0002af20  0002af20  00000750  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
-149 .config_FCKSM 00000002  0002af1c  0002af1c  0000074c  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
-150 .config_IESO  00000002  0002af18  0002af18  00000748  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
-151 .config_BSLIM 00000002  0002af10  0002af10  00000744  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
-152 .text         0000012c  0000020a  0000020a  000004e8  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+135 __FSEC        00000002  0002af00  0002af00  0000073c  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+136 .debug_info   00000eb1  00000000  00000000  0000075c  2**0  CONTENTS, DEBUGGING, ABSOLUTE
+137 .debug_abbrev 00000112  00000000  00000000  000024be  2**0  CONTENTS, DEBUGGING, ABSOLUTE
+138 .debug_line   0000013b  00000000  00000000  000026e2  2**0  CONTENTS, DEBUGGING, ABSOLUTE
+139 .debug_frame  0000007c  00000000  00000000  00002958  2**0  CONTENTS, DEBUGGING, ABSOLUTE
+140 .debug_str    00000047  00000000  00000000  00002a50  2**0  CONTENTS, DEBUGGING, ABSOLUTE
+141 .debug_pubnames 00000042  00000000  00000000  00002ade  2**0  CONTENTS, DEBUGGING, ABSOLUTE
+142 .debug_aranges 00000018  00000000  00000000  00002b62  2**0  CONTENTS, DEBUGGING, ABSOLUTE
+143 .debug_pubtypes 000000fa  00000018  00000018  00002b92  2**0  CONTENTS, DEBUGGING, ABSOLUTE
+144 __c30_signature 00000012  00000112  00000112  00002d86  2**0  CONTENTS, DEBUGGING, ABSOLUTE
+145 .config_ALTI2C1 00000002  0002af2c  0002af2c  00000758  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+146 .config_JTAGEN 00000002  0002af28  0002af28  00000754  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+147 .config_DNVPEN 00000002  0002af24  0002af24  00000750  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+148 .config_WDTCLK 00000002  0002af20  0002af20  0000074c  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+149 .config_FCKSM 00000002  0002af1c  0002af1c  00000748  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+150 .config_IESO  00000002  0002af18  0002af18  00000744  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+151 .config_BSLIM 00000002  0002af10  0002af10  00000740  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+152 .text         0000012a  0000020a  0000020a  000004e8  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
 Disassembly of section .ivt._ADC1Interrupt:
 
 0000002e <.ivt._ADC1Interrupt>:
@@ -1125,11 +1125,11 @@ C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:125
         for (int i = 0; i < 2500 ; i++){
  296:	00 00 eb    	clr.w     w0
  298:	10 07 98    	mov.w     w0, [w14+2]
- 29a:	19 00 37    	bra       0x2ce <.L15>
+ 29a:	18 00 37    	bra       0x2cc <.L15>
 
 0000029c <.L20>:
 C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:126
-            for (int j = 0; j < 50; j++){
+            for (int j = 0; j < 30; j++){
  29c:	00 00 eb    	clr.w     w0
  29e:	20 07 98    	mov.w     w0, [w14+4]
  2a0:	0f 00 37    	bra       0x2c0 <.L16>
@@ -1165,24 +1165,23 @@ C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:126
  2be:	20 07 98    	mov.w     w0, [w14+4]
 
 000002c0 <.L16>:
- 2c0:	ae 00 90    	mov.w     [w14+4], w1
- 2c2:	10 03 20    	mov.w     #0x31, w0
- 2c4:	80 8f 50    	sub.w     w1, w0, [w15]
- 2c6:	ed ff 34    	bra       LE, 0x2a2 <.L19>
+ 2c0:	2e 00 90    	mov.w     [w14+4], w0
+ 2c2:	fd 0f 50    	sub.w     w0, #0x1d, [w15]
+ 2c4:	ee ff 34    	bra       LE, 0x2a2 <.L19>
 
-000002c8 <.LBE7>:
+000002c6 <.LBE7>:
 C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:125
- 2c8:	1e 00 90    	mov.w     [w14+2], w0
- 2ca:	00 00 e8    	inc.w     w0, w0
- 2cc:	10 07 98    	mov.w     w0, [w14+2]
+ 2c6:	1e 00 90    	mov.w     [w14+2], w0
+ 2c8:	00 00 e8    	inc.w     w0, w0
+ 2ca:	10 07 98    	mov.w     w0, [w14+2]
 
-000002ce <.L15>:
- 2ce:	9e 00 90    	mov.w     [w14+2], w1
- 2d0:	30 9c 20    	mov.w     #0x9c3, w0
- 2d2:	80 8f 50    	sub.w     w1, w0, [w15]
- 2d4:	e3 ff 34    	bra       LE, 0x29c <.L20> <.LBB7>
+000002cc <.L15>:
+ 2cc:	9e 00 90    	mov.w     [w14+2], w1
+ 2ce:	30 9c 20    	mov.w     #0x9c3, w0
+ 2d0:	80 8f 50    	sub.w     w1, w0, [w15]
+ 2d2:	e4 ff 34    	bra       LE, 0x29c <.L20> <.LBB7>
 
-000002d6 <.LBE6>:
+000002d4 <.LBE6>:
 C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:138
                 }
             }
@@ -1191,84 +1190,84 @@ C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:138
         
         
         if(PB0 == 0){
- 2d6:	c1 33 80    	mov.w     0x678, w1
- 2d8:	00 10 20    	mov.w     #0x100, w0
- 2da:	00 80 60    	and.w     w1, w0, w0
- 2dc:	00 00 e0    	cp0.w     w0
- 2de:	0d 00 3a    	bra       NZ, 0x2fa <.L21>
+ 2d4:	c1 33 80    	mov.w     0x678, w1
+ 2d6:	00 10 20    	mov.w     #0x100, w0
+ 2d8:	00 80 60    	and.w     w1, w0, w0
+ 2da:	00 00 e0    	cp0.w     w0
+ 2dc:	0d 00 3a    	bra       NZ, 0x2f8 <.L21>
 C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:139
             LED0 ^= 1; //toggle LED0
- 2e0:	d0 33 80    	mov.w     0x67a, w0
- 2e2:	45 00 de    	lsr.w     w0, #0x5, w0
- 2e4:	61 40 60    	and.b     w0, #0x1, w0
- 2e6:	00 04 a2    	btg.b     w0, #0x0
- 2e8:	61 40 60    	and.b     w0, #0x1, w0
- 2ea:	00 80 fb    	ze        w0, w0
- 2ec:	61 00 60    	and.w     w0, #0x1, w0
- 2ee:	45 00 dd    	sl.w      w0, #0x5, w0
- 2f0:	d1 33 80    	mov.w     0x67a, w1
- 2f2:	01 50 a1    	bclr.w    w1, #0x5
- 2f4:	01 00 70    	ior.w     w0, w1, w0
- 2f6:	d0 33 88    	mov.w     w0, 0x67a
- 2f8:	01 00 37    	bra       0x2fc <.L22>
+ 2de:	d0 33 80    	mov.w     0x67a, w0
+ 2e0:	45 00 de    	lsr.w     w0, #0x5, w0
+ 2e2:	61 40 60    	and.b     w0, #0x1, w0
+ 2e4:	00 04 a2    	btg.b     w0, #0x0
+ 2e6:	61 40 60    	and.b     w0, #0x1, w0
+ 2e8:	00 80 fb    	ze        w0, w0
+ 2ea:	61 00 60    	and.w     w0, #0x1, w0
+ 2ec:	45 00 dd    	sl.w      w0, #0x5, w0
+ 2ee:	d1 33 80    	mov.w     0x67a, w1
+ 2f0:	01 50 a1    	bclr.w    w1, #0x5
+ 2f2:	01 00 70    	ior.w     w0, w1, w0
+ 2f4:	d0 33 88    	mov.w     w0, 0x67a
+ 2f6:	01 00 37    	bra       0x2fa <.L22>
 
-000002fa <.L21>:
+000002f8 <.L21>:
 C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:142
         }
         else{
             LED0 = 0; // Disable LED0 if PB0 is not pressed
- 2fa:	7a a6 a9    	bclr.b    0x67a, #0x5
+ 2f8:	7a a6 a9    	bclr.b    0x67a, #0x5
 
-000002fc <.L22>:
+000002fa <.L22>:
 C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:145
         }
 
         if(PB1 == 0){
- 2fc:	20 33 80    	mov.w     0x664, w0
- 2fe:	70 00 60    	and.w     w0, #0x10, w0
- 300:	00 00 e0    	cp0.w     w0
- 302:	10 00 3a    	bra       NZ, 0x324 <.L23>
+ 2fa:	20 33 80    	mov.w     0x664, w0
+ 2fc:	70 00 60    	and.w     w0, #0x10, w0
+ 2fe:	00 00 e0    	cp0.w     w0
+ 300:	10 00 3a    	bra       NZ, 0x322 <.L23>
 C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:146
             if(loopCount > 3){
- 304:	1e 00 78    	mov.w     [w14], w0
- 306:	e3 0f 50    	sub.w     w0, #0x3, [w15]
- 308:	0e 00 34    	bra       LE, 0x326 <.L24>
+ 302:	1e 00 78    	mov.w     [w14], w0
+ 304:	e3 0f 50    	sub.w     w0, #0x3, [w15]
+ 306:	0e 00 34    	bra       LE, 0x324 <.L24>
 C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:147
                 LED1 ^= 1; //toggle LED1
- 30a:	d0 33 80    	mov.w     0x67a, w0
- 30c:	46 00 de    	lsr.w     w0, #0x6, w0
- 30e:	61 40 60    	and.b     w0, #0x1, w0
- 310:	00 04 a2    	btg.b     w0, #0x0
- 312:	61 40 60    	and.b     w0, #0x1, w0
- 314:	00 80 fb    	ze        w0, w0
- 316:	61 00 60    	and.w     w0, #0x1, w0
- 318:	46 00 dd    	sl.w      w0, #0x6, w0
- 31a:	d1 33 80    	mov.w     0x67a, w1
- 31c:	01 60 a1    	bclr.w    w1, #0x6
- 31e:	01 00 70    	ior.w     w0, w1, w0
- 320:	d0 33 88    	mov.w     w0, 0x67a
- 322:	01 00 37    	bra       0x326 <.L24>
+ 308:	d0 33 80    	mov.w     0x67a, w0
+ 30a:	46 00 de    	lsr.w     w0, #0x6, w0
+ 30c:	61 40 60    	and.b     w0, #0x1, w0
+ 30e:	00 04 a2    	btg.b     w0, #0x0
+ 310:	61 40 60    	and.b     w0, #0x1, w0
+ 312:	00 80 fb    	ze        w0, w0
+ 314:	61 00 60    	and.w     w0, #0x1, w0
+ 316:	46 00 dd    	sl.w      w0, #0x6, w0
+ 318:	d1 33 80    	mov.w     0x67a, w1
+ 31a:	01 60 a1    	bclr.w    w1, #0x6
+ 31c:	01 00 70    	ior.w     w0, w1, w0
+ 31e:	d0 33 88    	mov.w     w0, 0x67a
+ 320:	01 00 37    	bra       0x324 <.L24>
 
-00000324 <.L23>:
+00000322 <.L23>:
 C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:151
             }
         }
         else{
             LED1 = 0; // Disable LED1 if PB1 is not pressed
- 324:	7a c6 a9    	bclr.b    0x67a, #0x6
+ 322:	7a c6 a9    	bclr.b    0x67a, #0x6
 
-00000326 <.L24>:
+00000324 <.L24>:
 C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:154
         }
 
         if(loopCount > 3){
- 326:	1e 00 78    	mov.w     [w14], w0
- 328:	e3 0f 50    	sub.w     w0, #0x3, [w15]
- 32a:	03 00 34    	bra       LE, 0x332 <.L25>
+ 324:	1e 00 78    	mov.w     [w14], w0
+ 326:	e3 0f 50    	sub.w     w0, #0x3, [w15]
+ 328:	03 00 34    	bra       LE, 0x330 <.L25>
 C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:155
             loopCount = 0; // Reset loopCount after 4 iterations
- 32c:	00 00 eb    	clr.w     w0
- 32e:	00 0f 78    	mov.w     w0, [w14]
+ 32a:	00 00 eb    	clr.w     w0
+ 32c:	00 0f 78    	mov.w     w0, [w14]
 C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:162
         }
         else{
@@ -1277,10 +1276,10 @@ C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:162
 
         
     }
- 330:	b2 ff 37    	bra       0x296 <.L27> <.LBB6>
+ 32e:	b3 ff 37    	bra       0x296 <.L27> <.LBB6>
 
-00000332 <.L25>:
+00000330 <.L25>:
 C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:158
- 332:	1e 0f e8    	inc.w     [w14], [w14]
+ 330:	1e 0f e8    	inc.w     [w14], [w14]
 C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:162
- 334:	b0 ff 37    	bra       0x296 <.L27> <.LBB6>
+ 332:	b1 ff 37    	bra       0x296 <.L27> <.LBB6>

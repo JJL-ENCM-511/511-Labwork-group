@@ -123,7 +123,7 @@ int main(void) {
 
         // Continuously check the state of both psuh buttons for 0.25 s to control LED2
         for (int i = 0; i < 2500 ; i++){
-            for (int j = 0; j < 50; j++){
+            for (int j = 0; j < 25; j++){
                 if(PB0 == 0 && PB1 == 0){
                     LED2 = 1;
                 }
