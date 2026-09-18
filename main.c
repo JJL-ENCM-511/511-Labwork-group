@@ -60,8 +60,10 @@
 #include "xc.h"
 
 #define LED0 LATBbits.LATB5
+#define LED1 LATBbits.LATB6
+#define LED2 LATBbits.LATB7
 #define PB0 PORTBbits.RB8
-
+#define PB1 PORTAbits.RA4
 
 void ledOn()
 {
@@ -98,9 +100,16 @@ void ledButtonOn()
 int main(void) {
     
     TRISBbits.TRISB5 = 0; //set RB5 as output
+    TRISBbits.TRISB6 = 0; //set RB6 as output
+    TRISBbits.TRISB7 = 0; //set RB7 as output
     TRISBbits.TRISB8 = 1; //set RB8 as input
+    TRISAbits.TRISA4 = 1; //set RA4 as input
     IOCPUBbits.CNPUB8 = 1; //activate pullup for RB8
+    IOCPUAbits.CNPUA4 = 1; //activate pullup for RA4
     
+    int loopCount = 0;
+
+
     while(1)
     {
         //1 second
@@ -110,6 +119,44 @@ int main(void) {
         //ledBlink(2500, 50);
 
         //ledButtonOn();
+        
+
+        // Continuously check the state of both psuh buttons for 0.25 s to control LED2
+        for (int i = 0; i < 2500 ; i++){
+            for (int j = 0; j < 50; j++){
+                if(PB0 == 0 && PB1 == 0){
+                    LED2 = 1;
+                }
+                else{
+                    LED2 = 0;
+                }
+            }
+        }
+        //Check status of PB0 for LED0
+        
+        
+        if(PB0 == 0){
+            LED0 ^= 1; //toggle LED0
+        }
+        else{
+            LED0 = 0; // Disable LED0 if PB0 is not pressed
+        }
+
+        if(PB1 == 0){
+            if(loopCount > 3){
+                LED1 ^= 1; //toggle LED1
+            }
+        }
+        else{
+            LED1 = 0; // Disable LED1 if PB1 is not pressed
+        }
+
+        if(loopCount > 3){
+            loopCount = 0; // Reset loopCount after 4 iterations
+        }
+        else{
+            loopCount++; // Increment loopCount
+        } 
 
         
     }

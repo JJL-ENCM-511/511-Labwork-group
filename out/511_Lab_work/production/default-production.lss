@@ -131,24 +131,24 @@ Idx Name          Size      VMA       LMA       File off  Algn  Flags
 125 .ivt._U2TXInterrupt 00000002  00000052  00000052  00000158  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
 126 .reset        00000004  00000000  00000000  000000b4  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
 127 .text         0000010a  00000100  00000100  000002b4  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
-128 __FSEC        00000002  0002af00  0002af00  000005d8  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
-129 .debug_info   00000b4a  00000000  00000000  000005f8  2**0  CONTENTS, DEBUGGING, ABSOLUTE
-130 .debug_abbrev 00000110  00000000  00000000  00001c8c  2**0  CONTENTS, DEBUGGING, ABSOLUTE
-131 .debug_line   0000011e  00000000  00000000  00001eac  2**0  CONTENTS, DEBUGGING, ABSOLUTE
-132 .debug_frame  0000007c  00000000  00000000  000020e8  2**0  CONTENTS, DEBUGGING, ABSOLUTE
-133 .debug_str    00000028  00000000  00000000  000021e0  2**0  CONTENTS, DEBUGGING, ABSOLUTE
-134 .debug_pubnames 00000042  00000000  00000000  00002230  2**0  CONTENTS, DEBUGGING, ABSOLUTE
-135 .debug_aranges 00000018  00000000  00000000  000022b4  2**0  CONTENTS, DEBUGGING, ABSOLUTE
-136 .debug_pubtypes 0000009b  00000018  00000018  000022e4  2**0  CONTENTS, DEBUGGING, ABSOLUTE
-137 __c30_signature 00000012  000000b3  000000b3  0000241a  2**0  CONTENTS, DEBUGGING, ABSOLUTE
-138 .config_ALTI2C1 00000002  0002af2c  0002af2c  000005f4  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
-139 .config_JTAGEN 00000002  0002af28  0002af28  000005f0  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
-140 .config_DNVPEN 00000002  0002af24  0002af24  000005ec  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
-141 .config_WDTCLK 00000002  0002af20  0002af20  000005e8  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
-142 .config_FCKSM 00000002  0002af1c  0002af1c  000005e4  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
-143 .config_IESO  00000002  0002af18  0002af18  000005e0  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
-144 .config_BSLIM 00000002  0002af10  0002af10  000005dc  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
-145 .text         00000088  0000020a  0000020a  000004c8  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+128 __FSEC        00000002  0002af00  0002af00  00000720  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+129 .debug_info   00000eb1  00000000  00000000  00000740  2**0  CONTENTS, DEBUGGING, ABSOLUTE
+130 .debug_abbrev 00000112  00000000  00000000  000024a2  2**0  CONTENTS, DEBUGGING, ABSOLUTE
+131 .debug_line   0000013b  00000000  00000000  000026c6  2**0  CONTENTS, DEBUGGING, ABSOLUTE
+132 .debug_frame  0000007c  00000000  00000000  0000293c  2**0  CONTENTS, DEBUGGING, ABSOLUTE
+133 .debug_str    00000047  00000000  00000000  00002a34  2**0  CONTENTS, DEBUGGING, ABSOLUTE
+134 .debug_pubnames 00000042  00000000  00000000  00002ac2  2**0  CONTENTS, DEBUGGING, ABSOLUTE
+135 .debug_aranges 00000018  00000000  00000000  00002b46  2**0  CONTENTS, DEBUGGING, ABSOLUTE
+136 .debug_pubtypes 000000fa  00000018  00000018  00002b76  2**0  CONTENTS, DEBUGGING, ABSOLUTE
+137 __c30_signature 00000012  00000112  00000112  00002d6a  2**0  CONTENTS, DEBUGGING, ABSOLUTE
+138 .config_ALTI2C1 00000002  0002af2c  0002af2c  0000073c  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+139 .config_JTAGEN 00000002  0002af28  0002af28  00000738  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+140 .config_DNVPEN 00000002  0002af24  0002af24  00000734  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+141 .config_WDTCLK 00000002  0002af20  0002af20  00000730  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+142 .config_FCKSM 00000002  0002af1c  0002af1c  0000072c  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+143 .config_IESO  00000002  0002af18  0002af18  00000728  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+144 .config_BSLIM 00000002  0002af10  0002af10  00000724  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
+145 .text         0000012c  0000020a  0000020a  000004c8  2**1  CONTENTS, ALLOC, LOAD, CODE, ABSOLUTE
 Disassembly of section .ivt._ADC1Interrupt:
 
 0000002e <.ivt._ADC1Interrupt>:
@@ -914,43 +914,43 @@ Disassembly of section .text:
 
 0000020a <_ledOn>:
 ledOn():
-C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:67
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:69
 #define PB0 PORTBbits.RB8
-
+#define PB1 PORTAbits.RA4
 
 void ledOn()
 {
  20a:	00 00 fa    	lnk       #0x0
-C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:68
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:70
     LED0 = 1;
  20c:	7a a6 a8    	bset.b    0x67a, #0x5
-C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:69
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:71
 }
  20e:	00 80 fa    	ulnk      
  210:	00 00 06    	return    
 
 00000212 <_ledBlink>:
 ledBlink():
-C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:72
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:74
 
 void ledBlink(int delay, int in_delay)
 {
  212:	0c 00 fa    	lnk       #0xc
  214:	40 07 98    	mov.w     w0, [w14+8]
  216:	51 07 98    	mov.w     w1, [w14+10]
-C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:73
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:75
     LED0 = 0;
  218:	7a a6 a9    	bclr.b    0x67a, #0x5
 
 0000021a <.LBB2>:
-C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:74
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:76
     for (int i = 0; i < delay ; i++)
  21a:	00 00 eb    	clr.w     w0
  21c:	00 0f 78    	mov.w     w0, [w14]
  21e:	0b 00 37    	bra       0x236 <.L3>
 
 00000220 <.L6>:
-C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:76
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:78
     {
         for (int j = 0; j < in_delay; j++){}
  220:	00 00 eb    	clr.w     w0
@@ -969,7 +969,7 @@ C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:76
  232:	f9 ff 35    	bra       LT, 0x226 <.L5>
 
 00000234 <.LBE3>:
-C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:74
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:76
  234:	1e 0f e8    	inc.w     [w14], [w14]
 
 00000236 <.L3>:
@@ -979,20 +979,20 @@ C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:74
  23c:	f1 ff 35    	bra       LT, 0x220 <.L6> <.LBB3>
 
 0000023e <.LBE2>:
-C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:78
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:80
     }
     LED0 = 1;
  23e:	7a a6 a8    	bset.b    0x67a, #0x5
 
 00000240 <.LBB4>:
-C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:79
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:81
     for (int i = 0; i < delay ; i++)
  240:	00 00 eb    	clr.w     w0
  242:	20 07 98    	mov.w     w0, [w14+4]
  244:	0d 00 37    	bra       0x260 <.L7>
 
 00000246 <.L10>:
-C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:81
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:83
     {
         for (int j = 0; j < in_delay; j++){}
  246:	00 00 eb    	clr.w     w0
@@ -1011,7 +1011,7 @@ C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:81
  258:	f9 ff 35    	bra       LT, 0x24c <.L9>
 
 0000025a <.LBE5>:
-C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:79
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:81
  25a:	2e 00 90    	mov.w     [w14+4], w0
  25c:	00 00 e8    	inc.w     w0, w0
  25e:	20 07 98    	mov.w     w0, [w14+4]
@@ -1023,7 +1023,7 @@ C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:79
  266:	ef ff 35    	bra       LT, 0x246 <.L10> <.LBB5>
 
 00000268 <.LBE4>:
-C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:84
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:86
     }
     
 }
@@ -1032,26 +1032,26 @@ C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:84
 
 0000026c <_ledButtonOn>:
 ledButtonOn():
-C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:87
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:89
 
 void ledButtonOn()
 {
  26c:	00 00 fa    	lnk       #0x0
-C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:88
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:90
     if (PB0 == 1)
  26e:	c1 33 80    	mov.w     0x678, w1
  270:	00 10 20    	mov.w     #0x100, w0
  272:	00 80 60    	and.w     w1, w0, w0
  274:	00 00 e0    	cp0.w     w0
  276:	02 00 32    	bra       Z, 0x27c <.L12>
-C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:90
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:92
     {
         LED0 = 0;
  278:	7a a6 a9    	bclr.b    0x67a, #0x5
  27a:	01 00 37    	bra       0x27e <.L11>
 
 0000027c <.L12>:
-C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:94
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:96
     }
     else
     {
@@ -1059,7 +1059,7 @@ C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:94
  27c:	7a a6 a8    	bset.b    0x67a, #0x5
 
 0000027e <.L11>:
-C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:96
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:98
     }
 }
  27e:	00 80 fa    	ulnk      
@@ -1067,36 +1067,213 @@ C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:96
 
 00000282 <_main>:
 main():
-C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:98
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:100
 
 int main(void) {
- 282:	00 00 fa    	lnk       #0x0
-C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:100
+ 282:	06 00 fa    	lnk       #0x6
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:102
     
     TRISBbits.TRISB5 = 0; //set RB5 as output
  284:	76 a6 a9    	bclr.b    0x676, #0x5
-C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:101
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:103
+    TRISBbits.TRISB6 = 0; //set RB6 as output
+ 286:	76 c6 a9    	bclr.b    0x676, #0x6
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:104
+    TRISBbits.TRISB7 = 0; //set RB7 as output
+ 288:	76 e6 a9    	bclr.b    0x676, #0x7
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:105
     TRISBbits.TRISB8 = 1; //set RB8 as input
- 286:	77 06 a8    	bset.b    0x677, #0x0
-C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:102
+ 28a:	77 06 a8    	bset.b    0x677, #0x0
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:106
+    TRISAbits.TRISA4 = 1; //set RA4 as input
+ 28c:	62 86 a8    	bset.b    0x662, #0x4
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:107
     IOCPUBbits.CNPUB8 = 1; //activate pullup for RB8
- 288:	87 06 a8    	bset.b    0x687, #0x0
-
-0000028a <.L15>:
+ 28e:	87 06 a8    	bset.b    0x687, #0x0
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:108
+    IOCPUAbits.CNPUA4 = 1; //activate pullup for RA4
+ 290:	72 86 a8    	bset.b    0x672, #0x4
 C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:110
     
+    int loopCount = 0;
+ 292:	00 00 eb    	clr.w     w0
+ 294:	00 0f 78    	mov.w     w0, [w14]
+
+00000296 <.L27>:
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:125
+
+
     while(1)
     {
         //1 second
         //ledBlink(10000, 50);
 
         //0.25 second
-        ledBlink(2500, 50);
- 28a:	21 03 20    	mov.w     #0x32, w1
- 28c:	40 9c 20    	mov.w     #0x9c4, w0
- 28e:	c1 ff 07    	rcall     0x212 <_ledBlink> <.LFB1> <.LFE0>
-C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:113
+        //ledBlink(2500, 50);
 
         //ledButtonOn();
+        
+
+        // Continuously check the state of both psuh buttons for 0.25 s to control LED2
+        for (int i = 0; i < 2500 ; i++){
+ 296:	00 00 eb    	clr.w     w0
+ 298:	10 07 98    	mov.w     w0, [w14+2]
+ 29a:	19 00 37    	bra       0x2ce <.L15>
+
+0000029c <.L20>:
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:126
+            for (int j = 0; j < 50; j++){
+ 29c:	00 00 eb    	clr.w     w0
+ 29e:	20 07 98    	mov.w     w0, [w14+4]
+ 2a0:	0f 00 37    	bra       0x2c0 <.L16>
+
+000002a2 <.L19>:
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:127
+                if(PB0 == 0 && PB1 == 0){
+ 2a2:	c1 33 80    	mov.w     0x678, w1
+ 2a4:	00 10 20    	mov.w     #0x100, w0
+ 2a6:	00 80 60    	and.w     w1, w0, w0
+ 2a8:	00 00 e0    	cp0.w     w0
+ 2aa:	06 00 3a    	bra       NZ, 0x2b8 <.L17>
+ 2ac:	20 33 80    	mov.w     0x664, w0
+ 2ae:	70 00 60    	and.w     w0, #0x10, w0
+ 2b0:	00 00 e0    	cp0.w     w0
+ 2b2:	02 00 3a    	bra       NZ, 0x2b8 <.L17>
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:128
+                    LED2 = 1;
+ 2b4:	7a e6 a8    	bset.b    0x67a, #0x7
+ 2b6:	01 00 37    	bra       0x2ba <.L18>
+
+000002b8 <.L17>:
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:131
+                }
+                else{
+                    LED2 = 0;
+ 2b8:	7a e6 a9    	bclr.b    0x67a, #0x7
+
+000002ba <.L18>:
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:126
+ 2ba:	2e 00 90    	mov.w     [w14+4], w0
+ 2bc:	00 00 e8    	inc.w     w0, w0
+ 2be:	20 07 98    	mov.w     w0, [w14+4]
+
+000002c0 <.L16>:
+ 2c0:	ae 00 90    	mov.w     [w14+4], w1
+ 2c2:	10 03 20    	mov.w     #0x31, w0
+ 2c4:	80 8f 50    	sub.w     w1, w0, [w15]
+ 2c6:	ed ff 34    	bra       LE, 0x2a2 <.L19>
+
+000002c8 <.LBE7>:
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:125
+ 2c8:	1e 00 90    	mov.w     [w14+2], w0
+ 2ca:	00 00 e8    	inc.w     w0, w0
+ 2cc:	10 07 98    	mov.w     w0, [w14+2]
+
+000002ce <.L15>:
+ 2ce:	9e 00 90    	mov.w     [w14+2], w1
+ 2d0:	30 9c 20    	mov.w     #0x9c3, w0
+ 2d2:	80 8f 50    	sub.w     w1, w0, [w15]
+ 2d4:	e3 ff 34    	bra       LE, 0x29c <.L20> <.LBB7>
+
+000002d6 <.LBE6>:
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:138
+                }
+            }
+        }
+        //Check status of PB0 for LED0
+        
+        
+        if(PB0 == 0){
+ 2d6:	c1 33 80    	mov.w     0x678, w1
+ 2d8:	00 10 20    	mov.w     #0x100, w0
+ 2da:	00 80 60    	and.w     w1, w0, w0
+ 2dc:	00 00 e0    	cp0.w     w0
+ 2de:	0d 00 3a    	bra       NZ, 0x2fa <.L21>
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:139
+            LED0 ^= 1; //toggle LED0
+ 2e0:	d0 33 80    	mov.w     0x67a, w0
+ 2e2:	45 00 de    	lsr.w     w0, #0x5, w0
+ 2e4:	61 40 60    	and.b     w0, #0x1, w0
+ 2e6:	00 04 a2    	btg.b     w0, #0x0
+ 2e8:	61 40 60    	and.b     w0, #0x1, w0
+ 2ea:	00 80 fb    	ze        w0, w0
+ 2ec:	61 00 60    	and.w     w0, #0x1, w0
+ 2ee:	45 00 dd    	sl.w      w0, #0x5, w0
+ 2f0:	d1 33 80    	mov.w     0x67a, w1
+ 2f2:	01 50 a1    	bclr.w    w1, #0x5
+ 2f4:	01 00 70    	ior.w     w0, w1, w0
+ 2f6:	d0 33 88    	mov.w     w0, 0x67a
+ 2f8:	01 00 37    	bra       0x2fc <.L22>
+
+000002fa <.L21>:
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:142
+        }
+        else{
+            LED0 = 0; // Disable LED0 if PB0 is not pressed
+ 2fa:	7a a6 a9    	bclr.b    0x67a, #0x5
+
+000002fc <.L22>:
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:145
+        }
+
+        if(PB1 == 0){
+ 2fc:	20 33 80    	mov.w     0x664, w0
+ 2fe:	70 00 60    	and.w     w0, #0x10, w0
+ 300:	00 00 e0    	cp0.w     w0
+ 302:	10 00 3a    	bra       NZ, 0x324 <.L23>
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:146
+            if(loopCount > 3){
+ 304:	1e 00 78    	mov.w     [w14], w0
+ 306:	e3 0f 50    	sub.w     w0, #0x3, [w15]
+ 308:	0e 00 34    	bra       LE, 0x326 <.L24>
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:147
+                LED1 ^= 1; //toggle LED1
+ 30a:	d0 33 80    	mov.w     0x67a, w0
+ 30c:	46 00 de    	lsr.w     w0, #0x6, w0
+ 30e:	61 40 60    	and.b     w0, #0x1, w0
+ 310:	00 04 a2    	btg.b     w0, #0x0
+ 312:	61 40 60    	and.b     w0, #0x1, w0
+ 314:	00 80 fb    	ze        w0, w0
+ 316:	61 00 60    	and.w     w0, #0x1, w0
+ 318:	46 00 dd    	sl.w      w0, #0x6, w0
+ 31a:	d1 33 80    	mov.w     0x67a, w1
+ 31c:	01 60 a1    	bclr.w    w1, #0x6
+ 31e:	01 00 70    	ior.w     w0, w1, w0
+ 320:	d0 33 88    	mov.w     w0, 0x67a
+ 322:	01 00 37    	bra       0x326 <.L24>
+
+00000324 <.L23>:
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:151
+            }
+        }
+        else{
+            LED1 = 0; // Disable LED1 if PB1 is not pressed
+ 324:	7a c6 a9    	bclr.b    0x67a, #0x6
+
+00000326 <.L24>:
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:154
+        }
+
+        if(loopCount > 3){
+ 326:	1e 00 78    	mov.w     [w14], w0
+ 328:	e3 0f 50    	sub.w     w0, #0x3, [w15]
+ 32a:	03 00 34    	bra       LE, 0x332 <.L25>
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:155
+            loopCount = 0; // Reset loopCount after 4 iterations
+ 32c:	00 00 eb    	clr.w     w0
+ 32e:	00 0f 78    	mov.w     w0, [w14]
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:162
+        }
+        else{
+            loopCount++; // Increment loopCount
+        } 
+
+        
     }
- 290:	fc ff 37    	bra       0x28a <.L15>
+ 330:	b2 ff 37    	bra       0x296 <.L27> <.LBB6>
+
+00000332 <.L25>:
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:158
+ 332:	1e 0f e8    	inc.w     [w14], [w14]
+C:/Users/prudh/MPLABProjects/511_Lab_work/main.c:162
+ 334:	b0 ff 37    	bra       0x296 <.L27> <.LBB6>

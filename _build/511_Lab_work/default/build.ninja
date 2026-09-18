@@ -45,7 +45,7 @@ cmake_ninja_workdir = C$:/Users/prudh/MPLABProjects/511_Lab_work/_build/511_Lab_
 build cmake_object_order_depends_target_A_511_Lab_work_default_default_XC16_compile: phony || .
 
 build CMakeFiles/A_511_Lab_work_default_default_XC16_compile.dir/C_/Users/prudh/MPLABProjects/511_Lab_work/main.c.o: C_COMPILER__A_511_Lab_work_default_default_XC16_compile_unscanned_ C$:/Users/prudh/MPLABProjects/511_Lab_work/main.c || cmake_object_order_depends_target_A_511_Lab_work_default_default_XC16_compile
-  DEFINES = -DXPRJ_default=default -D__DEBUG
+  DEFINES = -DXPRJ_default=default -D__DEBUG -D__MPLAB_DEBUGGER_SNAP=1
   DEP_FILE = CMakeFiles\A_511_Lab_work_default_default_XC16_compile.dir\C_\Users\prudh\MPLABProjects\511_Lab_work\main.c.o.d
   FLAGS = -x c -g -mcpu=24FJ256GA702 -O0 -msmart-io=1 -Wall -msfr-warn=off
   INCLUDES = -I"c:/Program Files/Microchip/xc16/v2.10/support/PIC24F/h"
@@ -80,7 +80,7 @@ build cmake_object_order_depends_target_511_Lab_work_default_image_oW2QlG9r: pho
 # Link the executable C:\Users\prudh\MPLABProjects\511_Lab_work\out\511_Lab_work\default.elf
 
 build C$:/Users/prudh/MPLABProjects/511_Lab_work/out/511_Lab_work/default.elf: C_EXECUTABLE_LINKER__511_Lab_work_default_image_oW2QlG9r_ CMakeFiles/A_511_Lab_work_default_default_XC16_compile.dir/C_/Users/prudh/MPLABProjects/511_Lab_work/main.c.o || A_511_Lab_work_default_default_XC16_compile
-  LINK_FLAGS = -g -mcpu=24FJ256GA702 -Wl,--script=p24FJ256GA702.gld,--local-stack,--defsym=__MPLAB_BUILD=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,-D__DEBUG=__DEBUG,--stack=16,--check-sections,--data-init,--pack-data,--handles,--isr,--no-gc-sections,--fill-upper=0,--stackguard=16,--no-force-link,--smart-io,--report-mem,--memorysummary,memoryfile.xml
+  LINK_FLAGS = -g -mcpu=24FJ256GA702 -mreserve=data@0x800:0x81b -mreserve=data@0x81c:0x81d -mreserve=data@0x81e:0x81f -mreserve=data@0x820:0x821 -mreserve=data@0x822:0x823 -mreserve=data@0x824:0x827 -mreserve=data@0x82a:0x84f -Wl,--script=p24FJ256GA702.gld,--local-stack,--defsym=__MPLAB_BUILD=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,-D__DEBUG=__DEBUG,--defsym=__MPLAB_DEBUGGER_SNAP=1,--stack=16,--check-sections,--data-init,--pack-data,--handles,--isr,--no-gc-sections,--fill-upper=0,--stackguard=16,--no-force-link,--smart-io,--report-mem,--memorysummary,memoryfile.xml
   OBJECT_DIR = CMakeFiles\511_Lab_work_default_image_oW2QlG9r.dir
   POST_BUILD = cmd.exe /C "cd /D C:\Users\prudh\MPLABProjects\511_Lab_work\out\511_Lab_work && "c:\Program Files\Microchip\xc16\v2.10\bin\xc16-objdump.exe" --disassemble --wide --demangle --line-numbers --section-headers --source default.elf > default.lss"
   PRE_LINK = cd .
