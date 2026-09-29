@@ -1,0 +1,5 @@
+/home/jyap/Documents/ENCM511_Labs/511-Labwork-group-/Lab2/_build/Lab2/default/CMakeFiles/Lab2_default_default_XC16_compile.dir
+/home/jyap/Documents/ENCM511_Labs/511-Labwork-group-/Lab2/_build/Lab2/default/CMakeFiles/Lab2_default_image_hMbRhy8x.dir
+/home/jyap/Documents/ENCM511_Labs/511-Labwork-group-/Lab2/_build/Lab2/default/CMakeFiles/Lab2_default_Bin2Hex.dir
+/home/jyap/Documents/ENCM511_Labs/511-Labwork-group-/Lab2/_build/Lab2/default/CMakeFiles/edit_cache.dir
+/home/jyap/Documents/ENCM511_Labs/511-Labwork-group-/Lab2/_build/Lab2/default/CMakeFiles/rebuild_cache.dir
