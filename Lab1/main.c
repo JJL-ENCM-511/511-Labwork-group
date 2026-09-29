@@ -1,9 +1,9 @@
 /*
  * File:   main.c
- * Author: Joshua Prud'Homme, Luke Zenha, Johann Yap
+ * Author: Lucas Zenha, Johan Yap, Joshua Prud'Homme
  *
  * Created FOR ENCM 511
- * PLEASE ADD DATE CREATED HERE: 2025-XX-XX
+ * 2026/09/15
  */
 
 // FSEC
@@ -59,11 +59,106 @@
 
 #include "xc.h"
 
+#define LED0 LATBbits.LATB5
+#define LED1 LATBbits.LATB6
+#define LED2 LATBbits.LATB7
+#define PB0 PORTBbits.RB8
+#define PB1 PORTAbits.RA4
+
+void ledOn()
+{
+    LED0 = 1;
+}
+
+void ledBlink(int delay, int in_delay)
+{
+    LED0 = 0;
+    for (int i = 0; i < delay ; i++)
+    {
+        for (int j = 0; j < in_delay; j++){}
+    }
+    LED0 = 1;
+    for (int i = 0; i < delay ; i++)
+    {
+        for (int j = 0; j < in_delay; j++){}
+    }
+    
+}
+
+void ledButtonOn()
+{
+    if (PB0 == 1)
+    {
+        LED0 = 0;
+    }
+    else
+    {
+        LED0 = 1;
+    }
+}
+
+void QuarterSWaitLoop(){
+    // Continuously check the state of both psuh buttons for 0.25 s to control LED2
+        for (int i = 0; i < 2500 ; i++){
+        for (int j = 0; j < 25; j++){
+            if(PB0 == 0 && PB1 == 0){
+                LED2 = 1;
+            }
+            else{
+                LED2 = 0;
+            }
+        }
+    }
+}
 
 int main(void) {
     
+    TRISBbits.TRISB5 = 0; //set RB5 as output (LED0)
+    TRISBbits.TRISB6 = 0; //set RB6 as output (LED1)
+    TRISBbits.TRISB7 = 0; //set RB7 as output (LED2)
+    TRISBbits.TRISB8 = 1; //set RB8 as input (PB0)
+    TRISAbits.TRISA4 = 1; //set RA4 as input (PB1)
+    IOCPUBbits.CNPUB8 = 1; //activate pullup for RB8
+    IOCPUAbits.CNPUA4 = 1; //activate pullup for RA4
     
-    while(1){
+    int loopCount = 0;
+
+
+    while(1)
+    {
+        //1 second
+        //ledBlink(10000, 50);
+        //0.25 second
+        //ledBlink(2500, 50);
+        //ledButtonOn();
+        QuarterSWaitLoop();
+
+        //Check status of PB0 for LED0
+        
+        
+        if(PB0 == 0){
+            LED0 ^= 1; //toggle LED0
+        }
+        else{
+            LED0 = 0; // Disable LED0 if PB0 is not pressed
+        }
+
+        if(PB1 == 0){
+            if(loopCount > 3){
+                LED1 ^= 1; //toggle LED1
+            }
+        }
+        else{
+            LED1 = 0; // Disable LED1 if PB1 is not pressed
+        }
+
+        if(loopCount > 3){
+            loopCount = 0; // Reset loopCount after 4 iterations
+        }
+        else{
+            loopCount++; // Increment loopCount
+        } 
+
         
     }
     

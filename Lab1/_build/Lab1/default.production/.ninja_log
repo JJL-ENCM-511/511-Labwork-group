@@ -1,0 +1,6 @@
+# ninja log v7
+1	243	1790692451102050965	CMakeFiles/Lab1_default_default_XC16_compile.dir/home/jyap/Documents/ENCM511_Labs/511-Labwork-group-/Lab1/main.c.o	ec5a4918ee72e09e
+243	497	1790692451345282521	/home/jyap/Documents/ENCM511_Labs/511-Labwork-group-/Lab1/out/Lab1/production/default-production.elf	64f473e0c917415
+498	507	1790692451599051760	CMakeFiles/Lab1_default_Bin2Hex	83e05989c3c369f1
+498	507	1790692451599051760	/home/jyap/Documents/ENCM511_Labs/511-Labwork-group-/Lab1/out/Lab1/production/default-production.hex	83e05989c3c369f1
+498	507	1790692451599051760	/home/jyap/Documents/ENCM511_Labs/511-Labwork-group-/Lab1/_build/Lab1/default.production/CMakeFiles/Lab1_default_Bin2Hex	83e05989c3c369f1
