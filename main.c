@@ -97,13 +97,27 @@ void ledButtonOn()
     }
 }
 
+void QuarterSWaitLoop(){
+    // Continuously check the state of both psuh buttons for 0.25 s to control LED2
+        for (int i = 0; i < 2500 ; i++){
+        for (int j = 0; j < 25; j++){
+            if(PB0 == 0 && PB1 == 0){
+                LED2 = 1;
+            }
+            else{
+                LED2 = 0;
+            }
+        }
+    }
+}
+
 int main(void) {
     
-    TRISBbits.TRISB5 = 0; //set RB5 as output
-    TRISBbits.TRISB6 = 0; //set RB6 as output
-    TRISBbits.TRISB7 = 0; //set RB7 as output
-    TRISBbits.TRISB8 = 1; //set RB8 as input
-    TRISAbits.TRISA4 = 1; //set RA4 as input
+    TRISBbits.TRISB5 = 0; //set RB5 as output (LED0)
+    TRISBbits.TRISB6 = 0; //set RB6 as output (LED1)
+    TRISBbits.TRISB7 = 0; //set RB7 as output (LED2)
+    TRISBbits.TRISB8 = 1; //set RB8 as input (PB0)
+    TRISAbits.TRISA4 = 1; //set RA4 as input (PB1)
     IOCPUBbits.CNPUB8 = 1; //activate pullup for RB8
     IOCPUAbits.CNPUA4 = 1; //activate pullup for RA4
     
@@ -114,24 +128,11 @@ int main(void) {
     {
         //1 second
         //ledBlink(10000, 50);
-
         //0.25 second
         //ledBlink(2500, 50);
-
         //ledButtonOn();
-        
+        QuarterSWaitLoop();
 
-        // Continuously check the state of both psuh buttons for 0.25 s to control LED2
-        for (int i = 0; i < 2500 ; i++){
-            for (int j = 0; j < 25; j++){
-                if(PB0 == 0 && PB1 == 0){
-                    LED2 = 1;
-                }
-                else{
-                    LED2 = 0;
-                }
-            }
-        }
         //Check status of PB0 for LED0
         
         
