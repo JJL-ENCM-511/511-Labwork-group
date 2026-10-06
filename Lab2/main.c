@@ -124,6 +124,7 @@ int main(void) {
                     break;
             case STATE_HALVE_BLINK_RATE:
                 halve_br(&pb2_blink_rate);
+                state = STATE_DEFAULT;
                 break;
         }
     }
