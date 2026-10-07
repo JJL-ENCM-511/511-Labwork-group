@@ -1,7 +1,11 @@
-//Initial configuration of IO pins, IOC registers, and Timer 3 respectively
+//Initial configuration of IO pins, IOC registers, and Timer 2/3 respectively
+#ifndef CONFIG_H
+#define CONFIG_H
+
 void IOinit(void);
 void IOCconfig(void);
 void T3config(void);
+void T2config(void);
 
 //Global variable to detect button press event
 uint16_t PB_event;

@@ -41,6 +41,18 @@ void IOCconfig(void)
     IEC1bits.IOCIE = 1;
 }
 
+void T2config(void)
+{
+    //T2CON config
+    T2CONbits.T32 = 0; // operate timer 2 as 16 bit timer 
+    T2CONbits.TCKPS = 0; // set prescaler to 1:1
+    T2CONbits.TCS = 0; // use internal clock (Fosc/2 givs the clk for the timer when Tcs is set to 0)
+    T2CONbits.TSIDL = 0; // operate in idle mode
+    IPC2bits.T2IP = 2; // 7 is highest and 1 is lowest priority
+    IFS0bits.T2IF = 0;
+    IEC0bits.T2IE = 1; //enable timer 2 interrupt
+}
+
 void T3config(void)
 {
     //T3CON config
