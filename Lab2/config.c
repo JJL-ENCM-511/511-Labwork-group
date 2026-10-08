@@ -31,8 +31,8 @@ void IOCconfig(void)
     IOCNBbits.IOCNB8 = 1;
     IOCPBbits.IOCPB8 = 1;
 
-    IOCNAbits.IOCNA4 = 1;
-    IOCPAbits.IOCPA4 = 1;
+    IOCNAbits.IOCNB3 = 1;
+    IOCPAbits.IOCPB3 = 1;
 
     IOCSTATbits.IOCPBF = 0;
     
@@ -80,12 +80,20 @@ void __attribute__((interrupt, no_auto_psv)) _T3Interrupt(void){
 }
 
 void __attribute__ ((interrupt, no_auto_psv)) _IOCInterrupt(void) {
-    PB_event = 1;
+    if (IOCFBbits.IOCFB3 || IOCFBbits.IOCFB8)
+    {
+        PB0PB1_event = 1;
+        IOCFBbits.IOCFB3 = 0;
+        IOCFBbits.IOCFB8 = 0;
+    }
+
+    if (IOCFBbits.IOCFB10)
+    {
+        PB2_event = 1;
+        IOCFBbits.IOCFB10 = 0;
+    }
 
     // clear flags
-    IOCFBbits.IOCFB3 = 0;
-    IOCFBbits.IOCFB8 = 0;
-    IOCFBbits.IOCFB10 = 0;
     IOCSTATbits.IOCPBF = 0;
     IFS1bits.IOCIF = 0;
 }
