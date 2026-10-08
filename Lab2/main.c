@@ -92,7 +92,7 @@ void led1_blink(float interval); // led 1 blink in ms
 void led0_toggle(int s); // toggle led 0 on/off
 void led1_toggle(int s); // toggle led 1 on/off
 void halve_br(float *br_ptr); // halves blinkrate
-void change_state(void); // changes state based on what buttons pressed
+void change_led_state(void); // changes state based on what buttons pressed
 void delay_ms(int t); // delay in ms
 
 
@@ -115,7 +115,7 @@ int main(void) {
         {
             PB0PB1_event = 0;
             // need to add delay here
-            change_state();
+            change_led_state();
         }
         if (PB2_event)
         {

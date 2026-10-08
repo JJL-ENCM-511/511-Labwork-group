@@ -1,6 +1,7 @@
 //Initial configuration of IO pins, IOC registers, and Timer 2/3 respectively
 #ifndef CONFIG_H
 #define CONFIG_H
+#endif
 
 void IOinit(void);
 void IOCconfig(void);
