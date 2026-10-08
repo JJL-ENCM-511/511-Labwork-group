@@ -4,6 +4,7 @@
 extern uint16_t PB0PB1_event;
 extern uint16_t PB2_event;
 extern uint16_t blink_counter;
+extern uint16_t flag_triggered;
 //Macro definitions for LED and PB pins
 #define LED0 LATBbits.LATB5
 #define LED1 LATBbits.LATB6

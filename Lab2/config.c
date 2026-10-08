@@ -4,6 +4,7 @@
 uint16_t PB0PB1_event;
 uint16_t PB2_event;
 uint16_t blink_counter = 0;
+uint16_t flag_triggered = 0;
 
 void IOinit(void)
 {
@@ -48,7 +49,7 @@ void T2config(void)
 {
     //T2CON config
     T2CONbits.T32 = 0; // operate timer 2 as 16 bit timer 
-    T2CONbits.TCKPS = 0; // set prescaler to 1:1
+    T2CONbits.TCKPS = 1; // set prescaler to 1:8
     T2CONbits.TCS = 0; // use internal clock (Fosc/2 givs the clk for the timer when Tcs is set to 0)
     T2CONbits.TSIDL = 0; // operate in idle mode
     IPC2 = 2; // 7 is highest and 1 is lowest priority
@@ -73,8 +74,8 @@ void T3config(void)
 
 void __attribute__((interrupt, no_auto_psv)) _T2Interrupt(void){
     //Don't forget to clear the timer 2 interrupt flag!
-    
-    T2CONbits.TON = 0; //disable timer 2
+    flag_triggered = 1;
+    IFS0bits.T2IF = 0;
 }
 
 void __attribute__((interrupt, no_auto_psv)) _T3Interrupt(void){

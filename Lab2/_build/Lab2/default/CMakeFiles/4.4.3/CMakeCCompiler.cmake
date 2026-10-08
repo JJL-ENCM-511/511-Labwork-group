@@ -1,4 +1,4 @@
-set(CMAKE_C_COMPILER "/opt/microchip/xc16/v2.10/bin/xc16-gcc")
+set(CMAKE_C_COMPILER "c:/Program Files/Microchip/xc16/v2.10/bin/xc16-gcc.exe")
 set(CMAKE_C_COMPILER_ARG1 "")
 set(CMAKE_C_COMPILER_ID "GNU")
 set(CMAKE_C_COMPILER_VERSION "4.5.1")
@@ -24,11 +24,11 @@ set(CMAKE_C_COMPILER_ARCHITECTURE_ID "")
 
 
 
-set(CMAKE_AR "/opt/microchip/xc16/v2.10/bin/xc16-ar")
+set(CMAKE_AR "c:/Program Files/Microchip/xc16/v2.10/bin/xc16-ar.exe")
 set(CMAKE_C_COMPILER_AR "CMAKE_C_COMPILER_AR-NOTFOUND")
-set(CMAKE_RANLIB "/opt/microchip/xc16/v2.10/bin/xc16-ranlib")
+set(CMAKE_RANLIB "C:/Program Files/Microchip/xc16/v2.10/bin/xc16-ranlib.exe")
 set(CMAKE_C_COMPILER_RANLIB "CMAKE_C_COMPILER_RANLIB-NOTFOUND")
-set(CMAKE_LINKER "/opt/microchip/xc16/v2.10/bin/xc16-ld")
+set(CMAKE_LINKER "C:/Program Files/Microchip/xc16/v2.10/bin/xc16-ld.exe")
 set(CMAKE_LINKER_LINK "")
 set(CMAKE_LINKER_LLD "")
 set(CMAKE_C_COMPILER_LINKER "")

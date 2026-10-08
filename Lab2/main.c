@@ -115,13 +115,13 @@ int main(void) {
         if (PB0PB1_event)
         {
             PB0PB1_event = 0;
-            //delay_ms(20);
+            delay_ms(20);
             change_led_state();
         }
         if (PB2_event)
         {
             PB2_event = 0;
-            //delay_ms(20);
+            delay_ms(20);
             if (!PB2){
                 state_br = STATE_PB2_WAIT;
             }
@@ -153,6 +153,9 @@ int main(void) {
             case STATE_PB2_WAIT:
                 delay_ms(200);
                 if (PB2)
+                    break;
+                else 
+                    state_br = STATE_HALVE_BLINK_RATE;
                     break;
             case STATE_HALVE_BLINK_RATE:
                 halve_br(&LED1_blink_rate);

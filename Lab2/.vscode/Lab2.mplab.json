@@ -6,6 +6,7 @@
             "id": "conf1",
             "device": "PIC24FJ256GA702",
             "imagePath": "./out/Lab2/default.elf",
+            "tool": "Snap",
             "packs": [
                 {
                     "name": "PIC24F-GA-GB_DFP",
