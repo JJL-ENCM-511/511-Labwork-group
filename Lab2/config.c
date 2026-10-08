@@ -1,6 +1,9 @@
 #include "xc.h"
 #include "config.h"
 
+uint16_t PB0PB1_event;
+uint16_t PB2_event;
+uint16_t blink_counter = 0;
 
 void IOinit(void)
 {
@@ -31,8 +34,8 @@ void IOCconfig(void)
     IOCNBbits.IOCNB8 = 1;
     IOCPBbits.IOCPB8 = 1;
 
-    IOCNAbits.IOCNB3 = 1;
-    IOCPAbits.IOCPB3 = 1;
+    IOCNBbits.IOCNB3 = 1;
+    IOCPBbits.IOCPB3 = 1;
 
     IOCSTATbits.IOCPBF = 0;
     
@@ -48,7 +51,7 @@ void T2config(void)
     T2CONbits.TCKPS = 0; // set prescaler to 1:1
     T2CONbits.TCS = 0; // use internal clock (Fosc/2 givs the clk for the timer when Tcs is set to 0)
     T2CONbits.TSIDL = 0; // operate in idle mode
-    IPC2bits.T2IP = 2; // 7 is highest and 1 is lowest priority
+    IPC2 = 2; // 7 is highest and 1 is lowest priority
     IFS0bits.T2IF = 0;
     IEC0bits.T2IE = 1; //enable timer 2 interrupt
 }
@@ -71,12 +74,18 @@ void T3config(void)
 void __attribute__((interrupt, no_auto_psv)) _T2Interrupt(void){
     //Don't forget to clear the timer 2 interrupt flag!
     IFS0bits.T2IF = 0;
+    T2CONbits.TON = 0; //disable timer 2
 }
 
 void __attribute__((interrupt, no_auto_psv)) _T3Interrupt(void){
     //Don't forget to clear the timer 2 interrupt flag!
     IFS0bits.T3IF = 0;
-    LED0 ^= 1;
+    if (blink_counter <= 32)
+    {
+        blink_counter++;
+    } else {
+        blink_counter = 0;
+    }
 }
 
 void __attribute__ ((interrupt, no_auto_psv)) _IOCInterrupt(void) {
