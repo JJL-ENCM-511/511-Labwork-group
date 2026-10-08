@@ -8,7 +8,7 @@ void delay_ms(uint16_t ms)
     // Overflow time = # of Count * Tcy * prescaler
     // Time each tick = prescaler * Tcy = 8 * 62.5ns = 500ns
     int flag_triggered = 0;
-    PR2 = ms * 2000000; // set the count value for variable value in ms (each tick is 500ns so to get 1ms * delay_ms converting each tick is 2,000,000)
+    PR2 = ms * 500; // set the count value for variable value in ms (each tick is 500ns so to get 1ms * delay_ms converting each tick is 2,000,000)
     TMR2 = 0;       // initialize the actualy counting register
     T2CONbits.TON = 1;  //enable timer 2
 

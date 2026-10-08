@@ -151,8 +151,8 @@ int main(void) {
             case STATE_PB_DEFAULT:
                 break;
             case STATE_PB2_WAIT:
-                delay_ms(200);
-                if (PB2)
+                delay_ms(20);
+                if (!PB2)
                     break;
                 else 
                     state_br = STATE_HALVE_BLINK_RATE;
