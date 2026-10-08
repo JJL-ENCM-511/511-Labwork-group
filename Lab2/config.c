@@ -66,14 +66,14 @@ void T3config(void)
     IPC2bits.T3IP = 2; //7 is highest and 1 is lowest pri.
     IFS0bits.T3IF = 0;
     IEC0bits.T3IE = 1; //enable timer interrupt
-    PR3 = 7812; // set the count value for 0.5 s (or 500 ms)
+    PR3 = 1953; // set the count value for 0.125s 
     TMR3 = 0;
     T3CONbits.TON = 1;
 }
 
 void __attribute__((interrupt, no_auto_psv)) _T2Interrupt(void){
     //Don't forget to clear the timer 2 interrupt flag!
-    IFS0bits.T2IF = 0;
+    
     T2CONbits.TON = 0; //disable timer 2
 }
 

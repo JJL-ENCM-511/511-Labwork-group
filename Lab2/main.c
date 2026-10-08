@@ -101,6 +101,8 @@ int main(void) {
 
     IOCconfig();
 
+    T2config();
+
     T3config();
 
     PB0PB1_event = 0; // software flag to detect change in button press
@@ -113,14 +115,14 @@ int main(void) {
         if (PB0PB1_event)
         {
             PB0PB1_event = 0;
-            delay_ms(20);
+            //delay_ms(20);
             change_led_state();
         }
         if (PB2_event)
         {
             PB2_event = 0;
-            delay_ms(20);
-            if (PB2){
+            //delay_ms(20);
+            if (!PB2){
                 state_br = STATE_PB2_WAIT;
             }
         }
@@ -159,7 +161,7 @@ int main(void) {
         }
 
 
-
+        Idle();
     }
     
     return 0;
@@ -169,15 +171,15 @@ int main(void) {
 
 void change_led_state(void)
 {
-    if (PB0 && (!PB1))
+    if (!PB0 && (PB1))
     {
         state_led = STATE_LED_250MS;
     }
-    else if (PB0 && PB1)
+    else if (!PB0 && !PB1)
     {
         state_led = STATE_LED_500MS;
     }
-    else if ((!PB0) && PB1)
+    else if ((PB0) && !PB1)
     {
         state_led = STATE_LED_BLINK_RATE;
     }

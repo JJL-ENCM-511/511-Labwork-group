@@ -12,4 +12,6 @@ void delay_ms(uint16_t ms)
     T2CONbits.TON = 1;  //enable timer 2
 
     while(IFS0bits.T2IF == 0); // wait for the timer to overflow
+
+    IFS0bits.T2IF = 0;
 }
