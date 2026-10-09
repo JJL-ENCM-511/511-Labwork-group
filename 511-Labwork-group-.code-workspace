@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "Lab2",
+			"path": "docs/Lab2"
+		},
+		{
+			"name": "Lab2",
+			"path": "Lab2"
+		}
+	],
+	"settings": {
+		"mplab.clangd.compileCommandsDir": "${workspaceFolder}/Lab2/_build/Lab2/default"
+	}
+}

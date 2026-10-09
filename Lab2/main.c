@@ -58,14 +58,224 @@
 
 
 #include "xc.h"
+#include "config.h"
+#include "delay_ms.h"
+
+#define IOC
+
+
+
+
+typedef enum 
+{
+    STATE_LED_DEFAULT,
+    STATE_LED_250MS,
+    STATE_LED_500MS,
+    STATE_LED_BLINK_RATE
+} state_0;
+
+state_0 state_led = STATE_LED_DEFAULT;
+
+typedef enum 
+{
+    STATE_PB_DEFAULT,
+    STATE_PB2_WAIT,
+    STATE_HALVE_BLINK_RATE
+} state_1;
+
+state_1 state_br = STATE_PB_DEFAULT;
+
+uint16_t LED1_blink_rate = 32; // 0.125s * 32 = 4s
+
+void led0_blink(int s); // Blink LED based on blink counter and blink rate
+void led1_blink(int s); // Blink LED based on blink counter and blink rate
+void halve_br(uint16_t *br_ptr); // halves blinkrate
+void change_led_state(void); // changes state based on what buttons pressed
+
+
 
 
 int main(void) {
+
+    IOinit();
+
+    IOCconfig();
+
+    T2config();
+
+    T3config();
+
+    PB0PB1_event = 0; // software flag to detect change in button press
+    PB2_event = 0;
+
     
-    
-    while(1){
-        
+
+    while(1)
+    {
+        if (PB0PB1_event)
+        {
+            PB0PB1_event = 0;
+            delay_ms(20);
+            change_led_state();
+        }
+        if (PB2_event)
+        {
+            PB2_event = 0;
+            delay_ms(20);
+            if (!PB2){
+                state_br = STATE_PB2_WAIT;
+            }
+        }
+
+        switch(state_led)
+        {
+            case STATE_LED_DEFAULT:
+                led0_blink(0);
+                led1_blink(0);
+                break;
+            case STATE_LED_250MS:
+                led0_blink(2);
+                led1_blink(0);
+                break;
+            case STATE_LED_500MS:
+                led0_blink(4);
+                led1_blink(0);
+                break;
+            case STATE_LED_BLINK_RATE:
+                led0_blink(0);
+                led1_blink(LED1_blink_rate);
+                break;
+        }
+        switch(state_br)
+        {
+            case STATE_PB_DEFAULT:
+                break;
+            case STATE_PB2_WAIT:
+                delay_ms(20);
+                if (!PB2)
+                    break;
+                else 
+                    state_br = STATE_HALVE_BLINK_RATE;
+                    break;
+            case STATE_HALVE_BLINK_RATE:
+                halve_br(&LED1_blink_rate);
+                state_br = STATE_PB_DEFAULT;
+                break;
+        }
+
+
+        Idle();
     }
     
     return 0;
 }
+
+
+
+void change_led_state(void)
+{
+    if (!PB0 && (PB1))
+    {
+        state_led = STATE_LED_250MS;
+    }
+    else if (!PB0 && !PB1)
+    {
+        state_led = STATE_LED_500MS;
+    }
+    else if ((PB0) && !PB1)
+    {
+        state_led = STATE_LED_BLINK_RATE;
+    }
+    else
+    {
+        state_led = STATE_LED_DEFAULT;
+    }
+}
+
+
+void led0_blink(int s) // Blink LED based on blink counter and blink rate
+{
+    if (s == 0)
+    {
+        LED0 = 0;
+    } 
+    else if (blink_counter % s == 0 && blink_counter != 0)
+    {
+        LED0 ^= 1;
+    }
+}
+void led1_blink(int s) // Blink LED based on blink counter and blink rate
+{
+    if (s == 0)
+    {
+        LED1 = 0;
+    } 
+    else if (blink_counter % s == 0 && blink_counter != 0)
+    {
+        LED1 ^= 1;
+    }
+}
+
+void halve_br(uint16_t *br_ptr){
+    
+    if (*br_ptr > 1)
+    {
+        *br_ptr = *br_ptr / 2;
+    } else {
+        *br_ptr = 32;
+    }
+}
+
+
+
+
+
+
+
+
+
+/*
+
+if (PB0PB1_event)
+        {
+            PB0PB1_event = 0;
+            // need to add delay here
+            change_led_state();
+        }
+        if (PB2_event)
+        {
+            PB2_event = 0;
+            if (PB2){
+                state_br = STATE_PB2_WAIT;
+            }
+        }
+        switch(state_led)
+        {
+            case STATE_LED_DEFAULT:
+                led0_toggle(0);
+                led1_toggle(0);
+                break;
+            case STATE_LED_250MS:
+                led0_blink(250);
+                break;
+            case STATE_LED_500MS:
+                led0_blink(500);
+                break;
+            case STATE_LED_BLINK_RATE:
+                led1_blink(pb2_blink_rate);
+                break;
+        }
+        switch(state_br)
+        {
+            case STATE_PB_DEFAULT:
+                break;
+            case STATE_PB2_WAIT:
+                delay_ms(200);
+                if (PB2)
+                    break;
+            case STATE_HALVE_BLINK_RATE:
+                halve_br(&pb2_blink_rate);
+                state_br = STATE_PB_DEFAULT;
+                break;
+        }
+*/

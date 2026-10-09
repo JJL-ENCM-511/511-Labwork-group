@@ -53,19 +53,19 @@ endif()
 
 
 # Main target for this project
-add_executable(Lab2_default_image_hMbRhy8x ${Lab2_default_library_list})
+add_executable(Lab2_default_image__yo7nq5E ${Lab2_default_library_list})
 
-set_target_properties(Lab2_default_image_hMbRhy8x PROPERTIES
+set_target_properties(Lab2_default_image__yo7nq5E PROPERTIES
     OUTPUT_NAME "default"
     SUFFIX ".elf"
     RUNTIME_OUTPUT_DIRECTORY "${Lab2_default_output_dir}")
-target_link_libraries(Lab2_default_image_hMbRhy8x PRIVATE ${Lab2_default_default_XC16_FILE_TYPE_link})
+target_link_libraries(Lab2_default_image__yo7nq5E PRIVATE ${Lab2_default_default_XC16_FILE_TYPE_link})
 # Add the link options from the rule file.
-Lab2_default_link_rule( Lab2_default_image_hMbRhy8x)
+Lab2_default_link_rule( Lab2_default_image__yo7nq5E)
 
 # Call bin2hex function from the rule file
-Lab2_default_bin2hex_rule(Lab2_default_image_hMbRhy8x)
+Lab2_default_bin2hex_rule(Lab2_default_image__yo7nq5E)
 
 #Add objcopy steps
-Lab2_default_objcopy_lss_rule(Lab2_default_image_hMbRhy8x)
+Lab2_default_objcopy_lss_rule(Lab2_default_image__yo7nq5E)
 

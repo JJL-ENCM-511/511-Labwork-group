@@ -15,7 +15,11 @@ foreach(source_file ${Lab2_default_default_XC16_FILE_TYPE_assemblePreproc})
         set_source_files_properties(${source_file} PROPERTIES INCLUDE_DIRECTORIES "$<PATH:NORMAL_PATH,$<PATH:REMOVE_FILENAME,${source_file}>>")
 endforeach()
 
-set(Lab2_default_default_XC16_FILE_TYPE_compile "${CMAKE_CURRENT_SOURCE_DIR}/../../../main.c")
+set(Lab2_default_default_XC16_FILE_TYPE_compile
+    "${CMAKE_CURRENT_SOURCE_DIR}/../../../blinkers.c"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../../../config.c"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../../../delay_ms.c"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../../../main.c")
 set_source_files_properties(${Lab2_default_default_XC16_FILE_TYPE_compile} PROPERTIES LANGUAGE C)
 set(Lab2_default_default_XC16_FILE_TYPE_link)
 set(Lab2_default_default_XC16_FILE_TYPE_bin2hex)
