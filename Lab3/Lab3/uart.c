@@ -14,12 +14,12 @@ uint8_t RXFlag = 0;
 void InitUART2(void) 
 {
 
-    RPINR19bits.U2RXR = 11; // ??????????????????????
-    RPOR5bits.RP10R = 5;    // ??????????????????????
+    RPINR19bits.U2RXR = 11; // stores received data
+    RPOR5bits.RP10R = 5;    // Peripheral Pin Select to pick uart output
 
     U2MODE = 0b0000000010001000;
 
-    U2BRG = 103;            // ??????????????????????
+    U2BRG = 103;            // Baud Rate Value of transmitted or received data
     
 	U2STAbits.UTXISEL0 = 0;
     U2STAbits.UTXISEL1 = 0;
@@ -43,10 +43,11 @@ void InitUART2(void)
 
 void Disp2String(char *str) //Displays String of characters
 {
-    unsigned int i;
-    for (i=0; i<= strlen(str); i++)
+    unsigned int i = 0;
+    while (str[i] != '\0') // stop at null character
     {
         XmitUART2(str[i],1);
+        i++;
     }
 
     return;
@@ -108,6 +109,7 @@ void RecvUart(char* input, uint8_t buf_size)
         //     add logic here
         // }
     }
+    input[i] = '\0'; // add null character for string
 }
 
 /************************************************************************

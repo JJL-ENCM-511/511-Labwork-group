@@ -63,14 +63,19 @@
 #include "xc.h"
 #include "uart.h"
 
-#define TESTSEND
+// #define TESTSEND
 
-/**
- * You might find it useful to add your own #defines to improve readability here
- */
+#define LED0 LATBbits.LATB5
+#define LED1 LATBbits.LATB6
+#define LED2 LATBbits.LATB7
+#define PB0 PORTBbits.RB3
+#define PB1 PORTBbits.RB8
+#define PB2 PORTBbits.RB12
+#define RX PORTBbits.RB10
+#define TX PORTBbits.RB11
 
 uint16_t slow = 0;
-char received;
+char received[32];
 
 int main(void) {
     
@@ -91,7 +96,7 @@ int main(void) {
     
 #ifdef TESTSEND
         XmitUART2('1',5);
-        XmitUART2('\n',5);
+        XmitUART2('\n', 1);
         
         for (slow = 0; slow < 4000; slow++) {
             
@@ -100,9 +105,9 @@ int main(void) {
         
 #ifndef TESTSEND
         Disp2String("Enter a character (hit enter to receive): ");
-        received = RecvUartChar();
+        RecvUart(received, 32);
         Disp2String("\r\n you entered ");
-        XmitUART2(received,1);
+        Disp2String(received);
         XmitUART2('\r',1);
         XmitUART2('\n',1);
         
