@@ -63,8 +63,9 @@
 #include "xc.h"
 #include "uart.h"
 #include "config.h"
+#include "delay_ms.h"
 
-#define TESTSEND
+// #define TESTSEND
 
 /**
  * You might find it useful to add your own #defines to improve readability here
@@ -72,6 +73,19 @@
 
 uint16_t slow = 0;
 char received;
+
+//FSM state definitions
+typedef enum {
+    Fast_Idle, // Default state, start-up 
+    Fast_PB0, // PB0 pressed, blinks @0.25s (goes back after PB1 pressed again)
+    Fast_PB1, // PB1 pressed, blinks @0.5s (goes back after PB1 pressed again)
+    Fast_PB2, // PB2 pressed, blinks @1s (goes back after PB2)
+    Fast_DualPB, 
+    Prog_Idle, 
+    Prog_PB0, 
+    Prog_ModeUse, 
+    Prog_ModeSel
+} state;
 
 int main(void) {
     
@@ -81,6 +95,12 @@ int main(void) {
      * projects, you might consider having one or more initialize() functions
      */
     
+     //Below are from config.c file
+    IOinit();
+    IOCconfig();
+    T2config();
+    T3config();
+
     ANSELA = 0x0000; /* keep this line as it sets I/O pins that can also be analog to be digital */
     ANSELB = 0x0000; /* keep this line as it sets I/O pins that can also be analog to be digital */
     TRISBbits.TRISB5 = 0; // set RB5 as output
@@ -91,22 +111,18 @@ int main(void) {
     while(1) {
     
 #ifdef TESTSEND
-        XmitUART2('1',5);
-        XmitUART2('\n',5);
-        
+        for(int i = 0 ; i < 10 ; i++) {
+        XmitUART2(i, 5);
+        XmitUART2('\n', 5);
+        }
         for (slow = 0; slow < 4000; slow++) {
             
         }
 #endif
         
 #ifndef TESTSEND
-        Disp2String("Enter a character (hit enter to receive): ");
-        received = RecvUartChar();
-        Disp2String("\r\n you entered ");
-        XmitUART2(received,1);
-        XmitUART2('\r',1);
-        XmitUART2('\n',1);
-        
+        //Replace with Johan's UART code
+
         
 #endif
         
