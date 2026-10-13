@@ -86,16 +86,19 @@ int main(void) {
     _LATB5 = 1;
     
     InitUART2();
+
+    uint16_t i = 1;
     
     while(1) {
     
 #ifdef TESTSEND
-        XmitUART2('1',5);
+        XmitUART2(i,5);
         XmitUART2('\n',5);
         
         for (slow = 0; slow < 4000; slow++) {
             
         }
+        i++;
 #endif
         
 #ifndef TESTSEND
