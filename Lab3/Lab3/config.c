@@ -1,7 +1,8 @@
 #include "xc.h"
 #include "config.h"
 
-uint16_t PB0PB1_event;
+uint16_t PB0_event;
+uint16_t PB1_event;
 uint16_t PB2_event;
 uint16_t blink_counter = 0;
 uint16_t flag_triggered = 0;
@@ -90,10 +91,15 @@ void __attribute__((interrupt, no_auto_psv)) _T3Interrupt(void){
 }
 
 void __attribute__ ((interrupt, no_auto_psv)) _IOCInterrupt(void) {
-    if (IOCFBbits.IOCFB3 || IOCFBbits.IOCFB8)
+    if (IOCFBbits.IOCFB3)
     {
-        PB0PB1_event = 1;
-        IOCFBbits.IOCFB3 = 0;
+        PB0_event = 1;
+        IOCFBbits.IOCFB8 = 0;
+    }
+
+    if (IOCFBbits.IOCFB8)
+    {
+        PB1_event = 1;
         IOCFBbits.IOCFB8 = 0;
     }
 

@@ -77,9 +77,15 @@ char received;
 //FSM state definitions
 typedef enum {
     Fast_Idle, // Default state, start-up 
+<<<<<<< Updated upstream
     Fast_PB0, // PB0 pressed, blinks @0.25s (goes back after PB1 pressed again)
     Fast_PB1, // PB1 pressed, blinks @0.5s (goes back after PB1 pressed again)
     Fast_PB2, // PB2 pressed, blinks @1s (goes back after PB2)
+=======
+    Fast_PB0, // PB0 pressed, blinks @0.25s
+    Fast_PB1, // 
+    Fast_PB2, 
+>>>>>>> Stashed changes
     Fast_DualPB, 
     Prog_Idle, 
     Prog_PB0, 
@@ -121,7 +127,22 @@ int main(void) {
 #endif
         
 #ifndef TESTSEND
+<<<<<<< Updated upstream
         //Replace with Johan's UART code
+=======
+        Disp2String("Enter a character (hit enter to receive): ");
+        received_last_char = RecvUartChar();
+        size = 20;
+        recieved_string = RecvUart(&recieved_string, size);
+        Disp2String("\r\n you entered ");
+        XmitUART2(received_last_char, 1);
+        XmitUART2('\r', 1);
+        XmitUART2('\n', 1);
+        Disp2String("\r\n you entered ");
+        XmitUART2(recieved_string, size);
+        XmitUART2('\r', 1);
+        XmitUART2('\n', 1);
+>>>>>>> Stashed changes
 
         
 #endif

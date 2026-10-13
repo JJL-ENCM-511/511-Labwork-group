@@ -14,12 +14,12 @@ uint8_t RXFlag = 0;
 void InitUART2(void) 
 {
 
-    RPINR19bits.U2RXR = 11; // ??????????????????????
-    RPOR5bits.RP10R = 5;    // ??????????????????????
+    RPINR19bits.U2RXR = 11; // 0b0000000000001011, RPIN are set to recieve UART2 for R0, R1, R3
+    RPOR5bits.RP10R = 5;    // 0b0000000000000101, RPOR have peripheral output number 5 assigned to RP10R0, R2
 
     U2MODE = 0b0000000010001000;    // BRGH = 1, Wake = 1 (Samples U2RX pin, interrupt triggers on falling edge, nit cleared in hardware on next rising edge)
 
-    U2BRG = 103;            // Baud Rate = 9.615 (FSC = 32MHz [Fcy = 16MHz])
+    U2BRG = 103;            // Baud Rate = 9.615 Kbps (FSC = 8MHz [Fcy = 4MHz])
     
 	U2STAbits.UTXISEL0 = 0;
     U2STAbits.UTXISEL1 = 0;
