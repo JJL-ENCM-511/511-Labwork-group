@@ -4,6 +4,8 @@
 uint16_t PB0_event;
 uint16_t PB1_event;
 uint16_t PB2_event;
+uint16_t mode_switch_event;
+uint16_t dual_PB_event;
 uint16_t blink_counter = 0;
 uint16_t flag_triggered = 0;
 
@@ -62,8 +64,8 @@ void T3config(void)
 {
     //T3CON config
     T2CONbits.T32 = 0; // operate timer 2 as 16 bit timer
-    T3CONbits.TCKPS = 3; // set prescaler to 1:256
-    T3CONbits.TCS = 0; // use internal clock
+    T3CONbits.TCKPS = 3; // set prescaler to 1:256  {Might need to change to 1:1}
+    T3CONbits.TCS = 0; // use internal clock    {Might need to change to FRC}
     T3CONbits.TSIDL = 0; //operate in idle mode
     IPC2bits.T3IP = 2; //7 is highest and 1 is lowest pri.
     IFS0bits.T3IF = 0;
@@ -73,7 +75,7 @@ void T3config(void)
     T3CONbits.TON = 1;
 }
 
-void __attribute__((interrupt, no_auto_psv)) _T2Interrupt(void){
+void __attribute__((interrupt, no_auto_psv)) _T2Interrupt(void){    //Interrupt only triggers during delay_ms function
     //Don't forget to clear the timer 2 interrupt flag!
     flag_triggered = 1;
     IFS0bits.T2IF = 0;
@@ -91,22 +93,42 @@ void __attribute__((interrupt, no_auto_psv)) _T3Interrupt(void){
 }
 
 void __attribute__ ((interrupt, no_auto_psv)) _IOCInterrupt(void) {
-    if (IOCFBbits.IOCFB3)
+    if (IOCFBbits.IOCFB3)   // PB 0 pressed
     {
         PB0_event = 1;
         IOCFBbits.IOCFB8 = 0;
     }
 
-    if (IOCFBbits.IOCFB8)
+    if (IOCFBbits.IOCFB8)   //PB 1 pressed
     {
         PB1_event = 1;
         IOCFBbits.IOCFB8 = 0;
     }
 
-    if (IOCFBbits.IOCFB10)
+    if (IOCFBbits.IOCFB10)  //PB 2 pressed
     {
         PB2_event = 1;
         IOCFBbits.IOCFB10 = 0;
+    }
+
+    // 2 PBs pressed at same time
+    if (IOCFBbits.IOCFB3 && IOCFBbits.IOCFB8 ||      // PB0, PB1 both pressed
+        IOCFBbits.IOCFB3 && IOCFBbits.IOCFB10 ||     // PB0, PB2 both pressed
+        IOCFBbits.IOCFB8 && IOCFBbits.IOCFB10 || )   // PB1, PB2 both pressed
+    {
+        dual_PB_event = 1;
+        if(IOCFBbits.IOCFB3 && IOCFBbits.IOCFB8) {
+            IOCFBbits.IOCFB3 = 0;
+            IOCFBbits.IOCFB8 = 0;
+        }
+        if(IOCFBbits.IOCFB3 && IOCFBbits.IOCFB10) {
+            IOCFBbits.IOCFB3 = 0;
+            IOCFBbits.IOCFB10 = 0;
+        }
+        if(IOCFBbits.IOCFB8 && IOCFBbits.IOCFB10) {
+            IOCFBbits.IOCFB8 = 0;
+            IOCFBbits.IOCFB10 = 0;
+        }
     }
 
     // clear flags

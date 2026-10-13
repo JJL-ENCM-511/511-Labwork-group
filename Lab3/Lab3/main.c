@@ -76,32 +76,23 @@ char received;
 
 //FSM state definitions
 typedef enum {
-    Fast_Idle, // Default state, start-up 
-<<<<<<< Updated upstream
-    Fast_PB0, // PB0 pressed, blinks @0.25s (goes back after PB1 pressed again)
-    Fast_PB1, // PB1 pressed, blinks @0.5s (goes back after PB1 pressed again)
-    Fast_PB2, // PB2 pressed, blinks @1s (goes back after PB2)
-=======
-    Fast_PB0, // PB0 pressed, blinks @0.25s
-    Fast_PB1, // 
-    Fast_PB2, 
->>>>>>> Stashed changes
-    Fast_DualPB, 
-    Prog_Idle, 
-    Prog_PB0, 
-    Prog_ModeUse, 
-    Prog_ModeSel
+    Fast_Idle,      // Default fast mode state, start-up state, no blinking, idle();
+    Fast_PB0,       // PB0 pressed, blinks @0.25s (goes back to idle after PB1 pressed again)
+    Fast_PB1,       // PB1 pressed, blinks @0.5s (goes back to idle after PB1 pressed again)
+    Fast_PB2,       // PB2 pressed, blinks @1s (goes back to idle after PB2)
+    Fast_DualPB,    // 2 PBs are pressed @same time in fast mode, stays on (goes back to idle after any PB is pressed)
+    Prog_Idle,      // Default prog mode state, no blinking, idle();
+    Prog_PB0,       // PB0 pressed, blinks @3s (goes back to idle after PB0 pressed again)
+    Prog_ModeUse,   // PB1 pressed, blinks time selected by Prog_ModeSel input (0,1,2), default to state 0 [State 0: 0.25s, State 1: 0.5s, State 2: 1s]
+    Prog_ModeSel,   // PB2 pressed, waits for user input to select Prog_ModeUse blink time state, Also blinks @0.125s
 } state;
+
+state current_mode = Fast_Idle; // Default state is Fast_Idle
+state event_state = Fast_Idle;   // Default event state is Fast_Idle
 
 int main(void) {
     
-    /** This is usually where you would add run-once code
-     * e.g., peripheral initialization. For the first labs
-     * you might be fine just having it here. For more complex
-     * projects, you might consider having one or more initialize() functions
-     */
-    
-     //Below are from config.c file
+     //Below initalization functions are from config.c file
     IOinit();
     IOCconfig();
     T2config();
@@ -116,7 +107,7 @@ int main(void) {
     
     while(1) {
     
-#ifdef TESTSEND
+#ifdef TESTSEND     // Testing code
         for(int i = 0 ; i < 10 ; i++) {
         XmitUART2(i, 5);
         XmitUART2('\n', 5);
@@ -126,25 +117,59 @@ int main(void) {
         }
 #endif
         
-#ifndef TESTSEND
-<<<<<<< Updated upstream
-        //Replace with Johan's UART code
-=======
-        Disp2String("Enter a character (hit enter to receive): ");
-        received_last_char = RecvUartChar();
-        size = 20;
-        recieved_string = RecvUart(&recieved_string, size);
-        Disp2String("\r\n you entered ");
-        XmitUART2(received_last_char, 1);
-        XmitUART2('\r', 1);
-        XmitUART2('\n', 1);
-        Disp2String("\r\n you entered ");
-        XmitUART2(recieved_string, size);
-        XmitUART2('\r', 1);
-        XmitUART2('\n', 1);
->>>>>>> Stashed changes
+#ifndef TESTSEND    // Actual assignment code
 
-        
+        // Below is logic to determine which state FSM is in based on software flags triggered by the interrupt
+        if(PB0_event & PB1_event & PB2_event) {     // All 3 PBs pressed = switch state
+            // Reset PB events are reset elsewhere, this just determines which mode
+            if(current_mode == Fast_Idle){
+                current_mode = Prog_Idle;
+                event_state= Prog_Idle;
+            }
+            else{
+                current_mode = Fast_Idle;
+                event_state = Fast_Idle;
+            }
+        }
+
+        if(PB0_event) {     // Blinks for 0.25s, or 3s depending on mode
+            PB0_event = 0; // Reset PB0 trigger
+            if(current_mode == Fast_Idle) {
+                event_state = Fast_PB0;
+            }
+            if(current_mode == Prog_Idle) {
+                event_state = Prog_PB0;
+            }
+        }
+
+        if(PB1_event) {
+            PB1_event = 0; // Reset PB1 trigger
+            if(current_mode == Fast_Idle) {
+                event_state = Fast_PB1;
+            }
+            if(current_mode == Prog_Idle) {
+                event_state = Prog_ModeUse;
+            }
+        }
+
+        if(PB2_event) {
+            PB2_event = 0; // Reset PB2 trigger
+            if(current_mode == Fast_Idle) {
+                event_state = Fast_PB2;
+            }
+            if(current_mode == Prog_Idle) {
+                event_state = Prog_ModeSel;
+            }
+        }
+
+        if(dual_PB_event) {
+            dual_PB_event = 0; // Reset dual PB trigger
+            if(current_mode == Fast_Idle) {
+                event_state = Fast_DualPB;
+            }
+        }
+
+        switch(current_event)
 #endif
         
     }
