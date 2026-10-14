@@ -90,6 +90,8 @@ typedef enum {
 state current_mode = Fast_Idle; // Default state is Fast_Idle
 state event_state = Fast_Idle;   // Default event state is Fast_Idle
 
+int switch_state_flag = 0;
+
 int main(void) {
     
      //Below initalization functions are from config.c file
@@ -120,8 +122,16 @@ int main(void) {
 #ifndef TESTSEND    // Actual assignment code
 
         // Below is logic to determine which state FSM is in based on software flags triggered by the interrupt
-        if(PB0_event & PB1_event & PB2_event) {     // All 3 PBs pressed = switch state
-            // Reset PB events are reset elsewhere, this just determines which mode
+        
+        while(1) {
+        
+        // Placed at top level 
+        if(PB0_event && PB1_event && PB2_event) {     // All 3 PBs pressed = switch state and ignore other possible events
+            PB0_event = 0; // Reset PB0 trigger
+            PB1_event = 0; // Reset PB1 trigger 
+            PB2_event = 0; // Reset PB2 trigger
+            switch_state_flag = 1; // Set flag to switch state
+        
             if(current_mode == Fast_Idle){
                 current_mode = Prog_Idle;
                 event_state= Prog_Idle;
@@ -142,7 +152,7 @@ int main(void) {
             }
         }
 
-        if(PB1_event) {
+        if(PB1_event) {     // Blinks for 0.5s or Xs (default 0.25s) depending on mode and previously selected setting
             PB1_event = 0; // Reset PB1 trigger
             if(current_mode == Fast_Idle) {
                 event_state = Fast_PB1;
@@ -162,17 +172,59 @@ int main(void) {
             }
         }
 
-        if(dual_PB_event) {
-            dual_PB_event = 0; // Reset dual PB trigger
+        if(dual_PB_event && !switch_state_flag) {     // 2 PBs pressed at same time, stays on until any PB is pressed again, checks if switch_state mode is on
+            dual_PB_event = 0; // Reset dual PB trigger, Placed at end to overwrite any previous states 
             if(current_mode == Fast_Idle) {
                 event_state = Fast_DualPB;
             }
+        if(switch_state_flag)     // Reset switch state flag after switching states
+            switch_state_flag = 0;
+        
+
+        switch(current_event) {
+            case Fast_Idle:
+                Idle();
+                break;
+
+            case Prog_Idle:
+                Idle();
+                break;
+
+            case Fast_PB0:
+                ...
+                break;
+
+            case Fast_PB1:
+                ...
+                break;
+
+            case Fast_PB2:
+                ...
+                break;
+
+            case Fast_DualPB:
+                ...
+                break;
+
+            case Prog_PB0:
+                ...
+                break;  
+
+            case Prog_ModeUse:
+                ...
+                break;
+            
+            case Prog_ModeSel:
+                ...
+                break;    
         }
 
-        switch(current_event)
+        Idle();
+    }
 #endif
         
     }
     
-    return 0;
+
+return 0;
 }
