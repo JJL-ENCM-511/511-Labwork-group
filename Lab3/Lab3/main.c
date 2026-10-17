@@ -65,7 +65,7 @@
 #include "config.h"
 #include "delay_ms.h"
 
-// #define TESTSEND
+#define TESTSTATE
 
 /**
  * You might find it useful to add your own #defines to improve readability here
@@ -109,14 +109,118 @@ int main(void) {
     
     while(1) {
     
-#ifdef TESTSEND     // Testing code
-        for(int i = 0 ; i < 10 ; i++) {
-        XmitUART2(i, 5);
-        XmitUART2('\n', 5);
+#ifdef TESTSTATE     // Testing State Switching Code
+        LED0 = 0;
+        LED1 = 0;
+        LED2 = 0;    
+    while(1) {
+
+        // Placed at top level 
+        if(PB0_event && PB1_event && PB2_event) {     // All 3 PBs pressed = switch state and ignore other possible events
+            PB0_event = 0; // Reset PB0 trigger
+            PB1_event = 0; // Reset PB1 trigger 
+            PB2_event = 0; // Reset PB2 trigger
+            switch_state_flag = 1; // Set flag to switch state
+        
+            if(current_mode == Fast_Idle){
+                current_mode = Prog_Idle;
+                event_state= Prog_Idle;
+            }
+            else{
+                current_mode = Fast_Idle;
+                event_state = Fast_Idle;
+            }
         }
-        for (slow = 0; slow < 4000; slow++) {
+
+        if(PB0_event) {     // Blinks for 0.25s, or 3s depending on mode
+            PB0_event = 0; // Reset PB0 trigger
+            if(current_mode == Fast_Idle) {
+                event_state = Fast_PB0;
+            }
+            if(current_mode == Prog_Idle) {
+                event_state = Prog_PB0;
+            }
+        }
+
+        if(PB1_event) {     // Blinks for 0.5s or Xs (default 0.25s) depending on mode and previously selected setting
+            PB1_event = 0; // Reset PB1 trigger
+            if(current_mode == Fast_Idle) {
+                event_state = Fast_PB1;
+            }
+            if(current_mode == Prog_Idle) {
+                event_state = Prog_ModeUse;
+            }
+        }
+
+        if(PB2_event) {
+            PB2_event = 0; // Reset PB2 trigger
+            if(current_mode == Fast_Idle) {
+                event_state = Fast_PB2;
+            }
+            if(current_mode == Prog_Idle) {
+                event_state = Prog_ModeSel;
+            }
+        }
+
+        if(dual_PB_event && !switch_state_flag) {     // 2 PBs pressed at same time, stays on until any PB is pressed again, checks if switch_state mode is on
+            dual_PB_event = 0; // Reset dual PB trigger, Placed at end to overwrite any previous states 
+            if(current_mode == Fast_Idle) 
+                event_state = Fast_DualPB;
+        }
             
+        if(switch_state_flag)     // Reset switch state flag after switching states
+            switch_state_flag = 0;
+        
+
+        switch(current_event) {
+            case Fast_Idle:
+                Idle();
+                break;
+
+            case Prog_Idle:
+                Idle();
+                break;
+
+            case Fast_PB0:
+                LED0 = !LED2;
+                break;
+
+            case Fast_PB1:
+                LED1 = !LED2;
+                break;
+
+            case Fast_PB2:
+                LED2 = !LED2;
+                break;
+
+            case Fast_DualPB:
+                LED0 = !LED0;
+                delay_ms(10)
+                LED0 = !LED0;
+                break;
+
+            case Prog_PB0:
+                LED1 = !LED1;
+                delay_ms(10)
+                LED1 = !LED1;
+                break;  
+
+            case Prog_ModeUse:
+                LED2 = !LED2;
+                delay_ms(10)
+                LED2 = !LED2;
+            break;
+            
+            case Prog_ModeSel:
+                LED0 = 1;
+                LED1 = 1;
+                LED2 = 1;
+                break;    
         }
+
+        Idle();
+    }
+
 #endif
         
 #ifndef TESTSEND    // Actual assignment code
@@ -174,9 +278,10 @@ int main(void) {
 
         if(dual_PB_event && !switch_state_flag) {     // 2 PBs pressed at same time, stays on until any PB is pressed again, checks if switch_state mode is on
             dual_PB_event = 0; // Reset dual PB trigger, Placed at end to overwrite any previous states 
-            if(current_mode == Fast_Idle) {
+            if(current_mode == Fast_Idle) 
                 event_state = Fast_DualPB;
-            }
+        }
+
         if(switch_state_flag)     // Reset switch state flag after switching states
             switch_state_flag = 0;
         

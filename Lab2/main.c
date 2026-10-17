@@ -92,9 +92,6 @@ void led1_blink(int s); // Blink LED based on blink counter and blink rate
 void halve_br(uint16_t *br_ptr); // halves blinkrate
 void change_led_state(void); // changes state based on what buttons pressed
 
-
-
-
 int main(void) {
 
     IOinit();

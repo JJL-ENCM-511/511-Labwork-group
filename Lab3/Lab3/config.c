@@ -33,13 +33,13 @@ void IOCconfig(void)
     PADCONbits.IOCON = 1;
 
     IOCNBbits.IOCNB10 = 1;
-    IOCPBbits.IOCPB10 = 1;
+    IOCPBbits.IOCPB10 = 0;  // Changed to 0 so that logic only works on a falling edge (release of PB)
 
     IOCNBbits.IOCNB8 = 1;
-    IOCPBbits.IOCPB8 = 1;
+    IOCPBbits.IOCPB8 = 0;   // Changed to 0 so that logic only works on a falling edge (release of PB)
 
     IOCNBbits.IOCNB3 = 1;
-    IOCPBbits.IOCPB3 = 1;
+    IOCPBbits.IOCPB3 = 0;   // Changed to 0 so that logic only works on a falling edge (release of PB)
 
     IOCSTATbits.IOCPBF = 0;
     
@@ -77,8 +77,9 @@ void T3config(void)
 
 void __attribute__((interrupt, no_auto_psv)) _T2Interrupt(void){    //Interrupt only triggers during delay_ms function
     //Don't forget to clear the timer 2 interrupt flag!
-    flag_triggered = 1;
     IFS0bits.T2IF = 0;
+    flag_triggered = 1;
+
 }
 
 void __attribute__((interrupt, no_auto_psv)) _T3Interrupt(void){
@@ -111,27 +112,16 @@ void __attribute__ ((interrupt, no_auto_psv)) _IOCInterrupt(void) {
         IOCFBbits.IOCFB10 = 0;
     }
 
-    // 2 PBs pressed at same time
-    if (IOCFBbits.IOCFB3 && IOCFBbits.IOCFB8 ||      // PB0, PB1 both pressed
-        IOCFBbits.IOCFB3 && IOCFBbits.IOCFB10 ||     // PB0, PB2 both pressed
-        IOCFBbits.IOCFB8 && IOCFBbits.IOCFB10 || )   // PB1, PB2 both pressed
-    {
-        dual_PB_event = 1;
-        if(IOCFBbits.IOCFB3 && IOCFBbits.IOCFB8) {
-            IOCFBbits.IOCFB3 = 0;
-            IOCFBbits.IOCFB8 = 0;
-        }
-        if(IOCFBbits.IOCFB3 && IOCFBbits.IOCFB10) {
-            IOCFBbits.IOCFB3 = 0;
-            IOCFBbits.IOCFB10 = 0;
-        }
-        if(IOCFBbits.IOCFB8 && IOCFBbits.IOCFB10) {
-            IOCFBbits.IOCFB8 = 0;
-            IOCFBbits.IOCFB10 = 0;
-        }
+    // 2 PBs pressed at same time 
+    // **THIS CHECK IS DEPENDANT ON ORDER PB CONDITIONS MUST BE CHECKED BEFORE THIS CONDITION TO PROPERLY FUNCTION**
+    if (PB0_event && PB1_event ||     // PB0, PB1 both pressed
+        PB0_event && PB2_event ||     // PB0, PB2 both pressed
+        PB1_event && PB2_event ) {  // PB1, PB2 both pressed
+    
+        dual_PB_event = 1;      //Flags triggered are reset in earlier checking statements
     }
 
-    // clear flags
+    // clear IOC interrupt flags
     IOCSTATbits.IOCPBF = 0;
     IFS1bits.IOCIF = 0;
 }
