@@ -62,6 +62,7 @@
 
 #include "xc.h"
 #include "uart.h"
+#include "uart_line.h"
 
 #define TESTSEND
 

@@ -63,6 +63,9 @@
 // TODO Insert declarations or function prototypes (right here) to leverage 
 // live documentation
 
+extern uint8_t received_char;
+extern uint8_t RXFlag;
+
 void InitUART2(void);
 void Disp2String(char *str);
 void XmitUART2(char CharNum, unsigned int repeatNo);
