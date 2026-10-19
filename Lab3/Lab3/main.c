@@ -64,6 +64,7 @@
 #include "uart.h"
 #include "config.h"
 #include "delay_ms.h"
+#include " uart_line.h"
 
 #define TESTSTATE
 
