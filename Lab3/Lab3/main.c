@@ -237,7 +237,7 @@ int main(void) {
         
             if(current_mode == Fast_Idle){
                 current_mode = Prog_Idle;
-                event_state= Prog_Idle;
+                event_state = Prog_Idle;
             }
             else{
                 current_mode = Fast_Idle;
@@ -250,7 +250,7 @@ int main(void) {
             if(current_mode == Fast_Idle) {
                 event_state = Fast_PB0;
             }
-            if(current_mode == Prog_Idle) {
+            else if(current_mode == Prog_Idle) {
                 event_state = Prog_PB0;
             }
         }
@@ -260,7 +260,7 @@ int main(void) {
             if(current_mode == Fast_Idle) {
                 event_state = Fast_PB1;
             }
-            if(current_mode == Prog_Idle) {
+            else if(current_mode == Prog_Idle) {
                 event_state = Prog_ModeUse;
             }
         }
@@ -270,7 +270,7 @@ int main(void) {
             if(current_mode == Fast_Idle) {
                 event_state = Fast_PB2;
             }
-            if(current_mode == Prog_Idle) {
+            else if(current_mode == Prog_Idle) {
                 event_state = Prog_ModeSel;
             }
         }
@@ -322,6 +322,7 @@ int main(void) {
                 //HIGHLY experimental
                 //F&!king around with bit shifts. Remove comment if it works.
                 blink_setting_speed = 1LL << ((BlinkSettingUart() - 48;) + 1);
+
                 break;    
         }
 
