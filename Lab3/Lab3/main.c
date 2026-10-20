@@ -190,7 +190,7 @@ int main(void) {
                 
             }
             else if(current_mode == Prog_Idle) {
-                if(event_state == Fast_PB0) {   
+                if(event_state == Prog_PB0) {   
                     event_state = Prog_Idle;
                     Disp2String("\r\nProg_Idle");
                 }
