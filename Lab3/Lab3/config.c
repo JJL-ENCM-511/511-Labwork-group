@@ -19,13 +19,13 @@ void IOinit(void)
     TRISBbits.TRISB6 = 0; //set RB6 as output (LED1)
     TRISBbits.TRISB7 = 0; //set RB7 as output (LED2)
 
-    TRISBbits.TRISB8 = 1; //set RB8 as input (PB1)
     TRISBbits.TRISB3 = 1; //set RB3 as input (PB0)
-    TRISBbits.TRISB10 = 1; //set RB10 as input (PB2)
+    TRISBbits.TRISB8 = 1; //set RB8 as input (PB1)
+    TRISBbits.TRISB12 = 1; //set RB12 as input (PB2)
 
     IOCPUBbits.CNPUB8 = 1; //activate pullup for RB8
     IOCPUBbits.CNPUB3 = 1; //activate pullup for RB3
-    IOCPUBbits.CNPUB10 = 1; //activate pullup for RB10
+    IOCPUBbits.CNPUB12 = 1; //activate pullup for RB12
 }
 
 
@@ -33,8 +33,8 @@ void IOCconfig(void)
 {
     PADCONbits.IOCON = 1;
 
-    IOCNBbits.IOCNB10 = 1;
-    IOCPBbits.IOCPB10 = 0;  // Changed to 0 so that logic only works on a falling edge (release of PB)
+    IOCNBbits.IOCNB12 = 1;
+    IOCPBbits.IOCPB12 = 0;  // Changed to 0 so that logic only works on a falling edge (release of PB)
 
     IOCNBbits.IOCNB8 = 1;
     IOCPBbits.IOCPB8 = 0;   // Changed to 0 so that logic only works on a falling edge (release of PB)
@@ -110,10 +110,10 @@ void __attribute__ ((interrupt, no_auto_psv)) _IOCInterrupt(void) {
         IOCFBbits.IOCFB8 = 0;
     }
 
-    if (IOCFBbits.IOCFB10)  //PB 2 pressed
+    if (IOCFBbits.IOCFB12)  //PB 2 pressed
     {
         PB2_event = 1;
-        IOCFBbits.IOCFB10 = 0;
+        IOCFBbits.IOCFB12 = 0;
     }
 
     // 2 PBs pressed at same time 

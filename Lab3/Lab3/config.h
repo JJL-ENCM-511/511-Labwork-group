@@ -15,7 +15,7 @@ extern uint16_t flag_triggered;
 #define LED2 LATBbits.LATB7
 #define PB0 PORTBbits.RB3
 #define PB1 PORTBbits.RB8
-#define PB2 PORTBbits.RB10
+#define PB2 PORTBbits.RB12
 #endif
 
 void IOinit(void);
