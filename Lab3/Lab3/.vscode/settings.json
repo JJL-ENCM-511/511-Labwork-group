@@ -5,5 +5,6 @@
         "gdb",
         "gdbtarget",
         "mplab-core-da"
-    ]
+    ],
+    "mplab.clangd.compileCommandsDir": "${workspaceFolder}\\_build\\Lab3\\default"
 }

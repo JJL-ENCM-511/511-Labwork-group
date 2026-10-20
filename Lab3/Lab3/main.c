@@ -216,7 +216,7 @@ int main(void) {
             case Fast_PB1:
                 led0_blink(4);
                 break;
-
+ 
             case Fast_PB2:
                 led0_blink(8);
                 break;
@@ -236,7 +236,7 @@ int main(void) {
             case Prog_ModeSel:
                 //HIGHLY experimental
                 //F&!king around with bit shifts. Remove comment if it works.
-                blink_setting_speed = 1LL << ((BlinkSettingUart() - 48;) + 1);
+                blink_setting_speed = 1LL << ((BlinkSettingUart() - 48) + 1);
 
                 break;    
         }
