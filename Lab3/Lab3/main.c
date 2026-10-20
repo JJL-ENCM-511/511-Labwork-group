@@ -64,13 +64,12 @@
 #include "uart.h"
 #include "config.h"
 #include "delay_ms.h"
-#include " uart_line.h"
+#include "uart_line.h"
+#include "blink.h"
 
 #define TESTSTATE
 
-/**
- * You might find it useful to add your own #defines to improve readability here
- */
+
 
 uint16_t slow = 0;
 char received;
@@ -92,6 +91,8 @@ state current_mode = Fast_Idle; // Default state is Fast_Idle
 state event_state = Fast_Idle;   // Default event state is Fast_Idle
 
 int switch_state_flag = 0;
+int blink_setting_speed = 2; // Default blink setting speed is 2 (0.25s) for Prog_ModeUse state
+
 
 int main(void) {
     
@@ -101,15 +102,12 @@ int main(void) {
     T2config();
     T3config();
 
-    ANSELA = 0x0000; /* keep this line as it sets I/O pins that can also be analog to be digital */
-    ANSELB = 0x0000; /* keep this line as it sets I/O pins that can also be analog to be digital */
-    TRISBbits.TRISB5 = 0; // set RB5 as output
     _LATB5 = 1;
     
     InitUART2();
     
     while(1) {
-    
+/*
 #ifdef TESTSTATE     // Testing State Switching Code
         LED0 = 0;
         LED1 = 0;
@@ -223,7 +221,7 @@ int main(void) {
     }
 
 #endif
-        
+*/
 #ifndef TESTSEND    // Actual assignment code
 
         // Below is logic to determine which state FSM is in based on software flags triggered by the interrupt
@@ -289,39 +287,41 @@ int main(void) {
 
         switch(current_event) {
             case Fast_Idle:
-                Idle();
+                led0_blink(0);
                 break;
 
             case Prog_Idle:
-                Idle();
+                led0_blink(0);
                 break;
 
             case Fast_PB0:
-                ...
+                led0_blink(2);
                 break;
 
             case Fast_PB1:
-                ...
+                led0_blink(4);
                 break;
 
             case Fast_PB2:
-                ...
+                led0_blink(8);
                 break;
 
             case Fast_DualPB:
-                ...
+                led0_blink(-1);
                 break;
 
             case Prog_PB0:
-                ...
+                led0_blink(24);
                 break;  
 
             case Prog_ModeUse:
-                ...
+                led0_blink(blink_setting_speed);
                 break;
             
             case Prog_ModeSel:
-                ...
+                //HIGHLY experimental
+                //F&!king around with bit shifts. Remove comment if it works.
+                blink_setting_speed = 1LL << ((BlinkSettingUart() - 48;) + 1);
                 break;    
         }
 
@@ -334,3 +334,5 @@ int main(void) {
 
 return 0;
 }
+
+
