@@ -1,6 +1,8 @@
 #include "uart.h"
 #include <xc.h>
 #include "config.h"
+#include "uart_line.h"
+#include "blink.h"
 
 char BlinkSettingUart(void)
 {
@@ -10,6 +12,7 @@ char BlinkSettingUart(void)
     XmitUART2('X',1);
     // wait for enter key
     while (1) {
+
         led0_blink(1);
         if (RXFlag == 1) {
             
@@ -30,7 +33,7 @@ char BlinkSettingUart(void)
             U2STAbits.OERR = 0;
             RXFlag = 0;
         }
-        
+        Idle();
         // if (CNflag == 1) { // this allows breaking out of the busy wait if CN interrupts are enabled...
         //     add logic here
         // }
