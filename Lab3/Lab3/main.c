@@ -131,12 +131,12 @@ int main(void) {
             if(current_mode == Fast_Idle){
                 current_mode = Prog_Idle;
                 event_state = Prog_Idle;
-                Disp2String("Prog_Idle\n");
+                Disp2String("\r\nProg_Idle");
             }
             else{
                 current_mode = Fast_Idle;
                 event_state = Fast_Idle;
-                Disp2String("Fast_Idle\n");
+                Disp2String("\r\nFast_Idle");
             }
         }
         if(dual_PB_event && !switch_state_flag) {     // 2 PBs pressed at same time, stays on until any PB is pressed again, checks if switch_state mode is on
@@ -144,8 +144,8 @@ int main(void) {
             
             if(current_mode == Fast_Idle) {
                 event_state = Fast_DualPB;
-                Disp2String("Fast_DualPB\n");
-                Disp2String("Fast Mode: PB");
+                Disp2String("\r\nFast_DualPB");
+                Disp2String("\r\nFast Mode: PB");
                 if (PB0_event) {
                     Disp2String("0");
                     PB0_event = 0; // Reset PB0 trigger
@@ -181,22 +181,22 @@ int main(void) {
                 
                 if(event_state == (Fast_PB0) || event_state == Fast_DualPB) {   //If it's already in state switch it to idle
                     event_state = Fast_Idle;
-                    Disp2String("Fast_Idle\n");
+                    Disp2String("\r\nFast_Idle");
                 }
                 else {
                 event_state = Fast_PB0; //Otherwise make that event
-                Disp2String("Fast_PB0\n");
+                Disp2String("\r\nFast_PB0");
                 }
                 
             }
             else if(current_mode == Prog_Idle) {
                 if(event_state == Fast_PB0) {   
                     event_state = Prog_Idle;
-                    Disp2String("Prog_Idle\n");
+                    Disp2String("\r\nProg_Idle");
                 }
                 else {
                 event_state = Prog_PB0;
-                Disp2String("Prog_PB0\n");
+                Disp2String("\r\nProg_PB0");
             }
             }
         }
@@ -206,21 +206,21 @@ int main(void) {
             if(current_mode == Fast_Idle) {     //Check current mode
                 if(event_state == (Fast_PB1) || event_state == Fast_DualPB) {   //If it's already in state switch it to idle
                     event_state = Fast_Idle;
-                    Disp2String("Fast_Idle\n");
+                    Disp2String("\r\nFast_Idle");
                 }
                 else {
                 event_state = Fast_PB1; //Otherwise make that event
-                Disp2String("Fast_PB1\n");
+                Disp2String("\r\nFast_PB1");
             }
             }
             else if(current_mode == Prog_Idle) {
                 if(event_state == Prog_ModeUse) {   
                     event_state = Prog_Idle;
-                    Disp2String("Prog_Idle\n");
+                    Disp2String("\r\nProg_Idle");
                 }
                 else {
                 event_state = Prog_ModeUse;
-                Disp2String("Prog_ModeUse\n");
+                Disp2String("\r\nProg_ModeUse");
                 }
             }
         }
@@ -230,22 +230,22 @@ int main(void) {
             if(current_mode == Fast_Idle) {     //Check current mode
                 if(event_state == Fast_PB2 || event_state == Fast_DualPB) {   //If it's already in state switch it to idle
                     event_state = Fast_Idle;
-                    Disp2String("Fast_Idle\n");
+                    Disp2String("\r\nFast_Idle");
                 }
                 else if(event_state == Fast_Idle) {   //If it's already in state switch it to idle
                     event_state = Fast_PB2;
-                    Disp2String("Fast_PB2\n");
+                    Disp2String("\r\nFast_PB2");
                 }
 
             }
             else if(current_mode == Prog_Idle) {
                 if(event_state == Prog_ModeSel) {   
                     event_state = Prog_Idle;
-                    Disp2String("Prog_Idle\n");
+                    Disp2String("\r\nProg_Idle");
                 }
                 else {
                 event_state = Prog_ModeSel;
-                Disp2String("Prog_ModeSel\n");
+                Disp2String("\r\nProg_ModeSel");
                 }
             }
         }
@@ -289,7 +289,7 @@ int main(void) {
             case Prog_ModeSel:
                 blink_setting_speed = 1LL << ((BlinkSettingUart() - 48) + 1);
                 event_state = Prog_Idle;
-                Disp2String("Prog_Idle\n");
+                Disp2String("\r\nProg_Idle");
                 break;    
         }
 
