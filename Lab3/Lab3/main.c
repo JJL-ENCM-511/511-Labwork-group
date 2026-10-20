@@ -117,7 +117,10 @@ int main(void) {
         // Below is logic to determine which state FSM is in based on software flags triggered by the interrupt
         
         while(1) {
+        if(PB_event) {     // Check if a PB event has occurred
+        Disp2String("PB Pressed\n");
         
+        delay_ms(20); // Debounce delay to avoid multiple triggers from a single press
         // Placed at top level 
         if(PB0_event && PB1_event && PB2_event) {     // All 3 PBs pressed = switch state and ignore other possible events
             PB0_event = 0; // Reset PB0 trigger
@@ -128,39 +131,50 @@ int main(void) {
             if(current_mode == Fast_Idle){
                 current_mode = Prog_Idle;
                 event_state = Prog_Idle;
+                Disp2String("Prog_Idle\n");
             }
             else{
                 current_mode = Fast_Idle;
                 event_state = Fast_Idle;
+                Disp2String("Fast_Idle\n");
             }
         }
 
         if(PB0_event) {     // Blinks for 0.25s, or 3s depending on mode
             PB0_event = 0; // Reset PB0 trigger
             if(current_mode == Fast_Idle) {     //Check current mode
-                if(event_state == Fast_PB0 || Fast_DualPB) {   //If it's already in state switch it to idle
+                
+                if(event_state == (Fast_PB0)) {   //If it's already in state switch it to idle
                     event_state = Fast_Idle;
+                    Disp2String("Fast_Idle\n");
                 }
-                else 
+                else {
                 event_state = Fast_PB0; //Otherwise make that event
+                Disp2String("Fast_PB0\n");
+                }
+                
             }
             else if(current_mode == Prog_Idle) {
                 if(event_state == Fast_PB0) {   
                     event_state = Prog_Idle;
                 }
-                else 
+                else {
                 event_state = Prog_PB0;
+            }
             }
         }
 
         if(PB1_event) {     // Blinks for 0.5s or Xs (default 0.25s) depending on mode and previously selected setting
             PB1_event = 0; // Reset PB1 trigger
             if(current_mode == Fast_Idle) {     //Check current mode
-                if(event_state == Fast_PB1 || Fast_DualPB) {   //If it's already in state switch it to idle
+                if(event_state == (Fast_PB1)) {   //If it's already in state switch it to idle
                     event_state = Fast_Idle;
+                    Disp2String("Fast_Idle\n");
                 }
-                else 
+                else {
                 event_state = Fast_PB1; //Otherwise make that event
+                Disp2String("Fast_PB1\n");
+            }
             }
             else if(current_mode == Prog_Idle) {
                 if(event_state == Prog_ModeUse) {   
@@ -174,11 +188,18 @@ int main(void) {
         if(PB2_event) {
             PB2_event = 0; // Reset PB2 trigger
             if(current_mode == Fast_Idle) {     //Check current mode
-                if(event_state == Fast_PB2 || Fast_DualPB) {   //If it's already in state switch it to idle
+                if(event_state == Fast_PB2) {   //If it's already in state switch it to idle
                     event_state = Fast_Idle;
+                    Disp2String("Fast_Idle\n");
                 }
-                else 
-                event_state = Fast_PB2; //Otherwise make that event
+                else if(event_state == Fast_Idle) {   //If it's already in state switch it to idle
+                    event_state = Fast_PB2;
+                    Disp2String("Fast_PB2\n");
+                }
+                else {
+                event_state = Fast_Idle; //Otherwise make that event
+                Disp2String("Fucker\n");
+                }
             }
             else if(current_mode == Prog_Idle) {
                 if(event_state == Prog_ModeSel) {   
@@ -195,11 +216,12 @@ int main(void) {
                 event_state = Fast_DualPB;
         }
 
+        }
         if(switch_state_flag)     // Reset switch state flag after switching states
                                   // Used so that system doesn't get confused and think all 3 PB's pressed is Dual_PB mode
             switch_state_flag = 0;
         
-
+        PB_event = 0;
         switch(event_state) {
             case Fast_Idle:
                 led0_blink(0);

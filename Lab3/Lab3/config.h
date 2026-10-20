@@ -6,6 +6,7 @@ extern uint16_t PB0_event;
 extern uint16_t PB1_event;
 extern uint16_t PB2_event;
 extern uint16_t dual_PB_event;
+extern uint16_t PB_event;
 extern uint16_t blink_counter;
 extern uint16_t flag_triggered;
 //Macro definitions for LED and PB pins

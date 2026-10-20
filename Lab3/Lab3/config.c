@@ -6,6 +6,7 @@ uint16_t PB1_event;
 uint16_t PB2_event;
 uint16_t mode_switch_event;
 uint16_t dual_PB_event;
+uint16_t PB_event;
 uint16_t blink_counter = 0;
 uint16_t flag_triggered = 0;
 
@@ -18,9 +19,9 @@ void IOinit(void)
     TRISBbits.TRISB6 = 0; //set RB6 as output (LED1)
     TRISBbits.TRISB7 = 0; //set RB7 as output (LED2)
 
-    TRISBbits.TRISB8 = 1; //set RB8 as input (PB2)
+    TRISBbits.TRISB8 = 1; //set RB8 as input (PB1)
     TRISBbits.TRISB3 = 1; //set RB3 as input (PB0)
-    TRISBbits.TRISB10 = 1; //set RB10 as input (PB3)
+    TRISBbits.TRISB10 = 1; //set RB10 as input (PB2)
 
     IOCPUBbits.CNPUB8 = 1; //activate pullup for RB8
     IOCPUBbits.CNPUB3 = 1; //activate pullup for RB3
@@ -94,10 +95,13 @@ void __attribute__((interrupt, no_auto_psv)) _T3Interrupt(void){
 }
 
 void __attribute__ ((interrupt, no_auto_psv)) _IOCInterrupt(void) {
+
+    PB_event = 1; // Flag to indicate that a PB event has occurred
+
     if (IOCFBbits.IOCFB3)   // PB 0 pressed
     {
         PB0_event = 1;
-        IOCFBbits.IOCFB8 = 0;
+        IOCFBbits.IOCFB3 = 0;
     }
 
     if (IOCFBbits.IOCFB8)   //PB 1 pressed
