@@ -3,3 +3,5 @@ _build/
 cmake/
 
 out/
+.vscode/settings.json
+lab4/.vscode/lab4.mplab.json

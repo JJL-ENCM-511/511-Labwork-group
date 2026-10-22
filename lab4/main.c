@@ -67,7 +67,19 @@ void clock_init(void) {
  * Output Pins: RB10, RB11, RB13
  * Note: RB13 is configured in pwm_init() -- do not touch it here. */
 void gpio_init(void) {
-    // your code here 
+    
+    ANSELA = 0x0000; /* keep this line as it sets I/O pins that can also be analog to be digital */
+    ANSELB = 0x0000; /* keep this line as it sets I/O pins that can also be analog to be digital */
+
+    TRISBbits.TRISB10 = 0; //
+    TRISBbits.TRISB11 = 0; //set RB10 and RB11 as output 
+
+    TRISBbits.TRISB7 = 1; //
+    TRISBbits.TRISB8 = 1; //set RB7 and RB8 as input
+
+    IOCPUBbits.CNPUB7 = 1; //
+    IOCPUBbits.CNPUB8 = 1; //activate pullup for RB7 and RB8
+
 }
 
 
@@ -77,16 +89,16 @@ void gpio_init(void) {
 void encoder_init(void) {
     PADCONbits.IOCON   = 0;     // disable IOC while configuring -- DO NOT CHANGE 
 
-    IOCPBbits.IOCPB7   = ??;     // enable rising edge on RB7  
-    IOCNBbits.IOCNB7   = ??;     // disable falling edge on RB7  
+    IOCPBbits.IOCPB7   = 1;     // enable rising edge on RB7  
+    IOCNBbits.IOCNB7   = 0;     // disable falling edge on RB7  
 
     IOCFB              = 0;     // DO NOT CHANGE 
     IOCSTATbits.IOCPBF = 0;     // DO NOT CHANGE 
     PADCONbits.IOCON   = 1;     // DO NOT CHANGE 
     IFS1bits.IOCIF     = 0;     // DO NOT CHANGE 
 
-    IPC4bits.IOCIP     = ??;     // IOC priority  
-    IEC1bits.IOCIE     = ??;     // IOC interrupt enable 
+    IPC4bits.IOCIP     = 3;     // IOC priority  
+    IEC1bits.IOCIE     = 1;     // IOC interrupt enable 
 }
 
 
@@ -165,7 +177,15 @@ void run_controller(void) {
  *   - Clear flags in this exact order: IOCFB7 -> IOCPBF -> IOCIF.
  * No function calls, UART, or delays inside this ISR. */
 void __attribute__((interrupt, no_auto_psv)) _IOCInterrupt(void) {
-    // your code here 
+    if (IOCFBbits.IOCFB7)
+    {
+        if (PORTBbits.RB8) encoder_count ++;    
+        else encoder_count --;
+        IOCFBbits.IOCFB7 = 0;
+    }
+
+    IOCSTATbits.IOCPBF = 0;
+    IFS1bits.IOCIF = 0;
 }
 
 
