@@ -77,16 +77,16 @@ void gpio_init(void) {
 void encoder_init(void) {
     PADCONbits.IOCON   = 0;     // disable IOC while configuring -- DO NOT CHANGE 
 
-    IOCPBbits.IOCPB7   = ??;     // enable rising edge on RB7  
-    IOCNBbits.IOCNB7   = ??;     // disable falling edge on RB7  
+    IOCPBbits.IOCPB7   = 1;     // enable rising edge on RB7  
+    IOCNBbits.IOCNB7   = 0;     // disable falling edge on RB7  
 
     IOCFB              = 0;     // DO NOT CHANGE 
     IOCSTATbits.IOCPBF = 0;     // DO NOT CHANGE 
     PADCONbits.IOCON   = 1;     // DO NOT CHANGE 
     IFS1bits.IOCIF     = 0;     // DO NOT CHANGE 
 
-    IPC4bits.IOCIP     = ??;     // IOC priority  
-    IEC1bits.IOCIE     = ??;     // IOC interrupt enable 
+    IPC4bits.IOCIP     = 3;     // IOC priority  
+    IEC1bits.IOCIE     = 1;     // IOC interrupt enable 
 }
 
 
