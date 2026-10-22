@@ -176,7 +176,15 @@ void run_controller(void) {
  *   - Clear flags in this exact order: IOCFB7 -> IOCPBF -> IOCIF.
  * No function calls, UART, or delays inside this ISR. */
 void __attribute__((interrupt, no_auto_psv)) _IOCInterrupt(void) {
-    // your code here 
+    if (IOCFBbits.IOCFB7)
+    {
+        if (PORTBbits.RB8) encoder_count ++;    
+        else encoder_count --;
+        IOCFBbits.IOCFB7 = 0;
+    }
+
+    IOCSTATbits.IOCPBF = 0;
+    IFS1bits.IOCIF = 0;
 }
 
 
