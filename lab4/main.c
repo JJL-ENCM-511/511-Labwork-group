@@ -98,15 +98,16 @@ void timer_init(void) {
     T2CON = 0;                  // DO NOT CHANGE 
     TMR2  = 0;                  // DO NOT CHANGE 
 
-    PR2               = ??;      // period register    
-    T2CONbits.TCKPS   = ??;   // prescaler select   
-    T2CONbits.TCS     = ??;      // clock source       
-    T2CONbits.T32     = ??;      // timer width        
+    // Tcy (time per clk period is 31.25ns) (Multiply by 1)
+    PR2               = (10*10**-3 / (31.25 * 10**-9)) * (1 / (FCY * 8));      // period register (Tcy = 1/[Fcy * Prescalar] Multiply this value by PR2 to get 10ms)   
+    T2CONbits.TCKPS   = 1;      // prescaler select (1:8)  
+    T2CONbits.TCS     = 0;      // clock source (Frc = 8MHz meaning Fcy = 4MHz [Assuming PLL is 1])       
+    T2CONbits.T32     = 0;      // timer width  (16-Bit Mode)      
 
-    IFS0bits.T2IF     = ??;      // DO NOT CHANGE      
-    IPC1bits.T2IP     = ??;      // Timer2 priority    
-    IEC0bits.T2IE     = ??;      // interrupt enable   
-    T2CONbits.TON     = ??;      // start timer        
+    IFS0bits.T2IF     = 0;      // DO NOT CHANGE      
+    IPC1bits.T2IP     = ?;      // Timer2 priority    
+    IEC0bits.T2IE     = 1;      // interrupt enable   
+    T2CONbits.TON     = 1;      // start timer        
 }
 
 
@@ -170,7 +171,7 @@ void __attribute__((interrupt, no_auto_psv)) _IOCInterrupt(void) {
 
 /* _T2Interrupt: DO NOT MODIFY. */
 void __attribute__((interrupt, no_auto_psv)) _T2Interrupt(void) {
-    control_flag  = 1;
+    control_flag  = 1;  //Flag indicating 0.001 
     IFS0bits.T2IF = 0;
 }
 
@@ -182,9 +183,14 @@ void __attribute__((interrupt, no_auto_psv)) _T2Interrupt(void) {
  * timer_init() must be last: starting Timer2 before other peripherals are
  * configured means _T2Interrupt can fire before PWM and the encoder are ready. */
 int main(void) {
+    // Initalization calls here (interrupt flags preliminarly )
     IFS0 = 0; IFS1 = 0; IFS2 = 0; IFS3 = 0; IFS4 = 0;
+    clock_init();
+    gpio_init();
+    pwm_init();
+    encoder_init();
+    timer_init();
 
-    // your initialisation calls here 
 
     while (1) {
         // your code here
