@@ -67,7 +67,19 @@ void clock_init(void) {
  * Output Pins: RB10, RB11, RB13
  * Note: RB13 is configured in pwm_init() -- do not touch it here. */
 void gpio_init(void) {
-    // your code here 
+    
+    ANSELA = 0x0000; /* keep this line as it sets I/O pins that can also be analog to be digital */
+    ANSELB = 0x0000; /* keep this line as it sets I/O pins that can also be analog to be digital */
+
+    TRISBbits.TRISB10 = 0; //
+    TRISBbits.TRISB11 = 0; //set RB10 and RB11 as output 
+
+    TRISBbits.TRISB7 = 1; //
+    TRISBbits.TRISB8 = 1; //set RB7 and RB8 as input
+
+    IOCPUBbits.CNPUB7 = 1; //
+    IOCPUBbits.CNPUB8 = 1; //activate pullup for RB7 and RB8
+
 }
 
 
