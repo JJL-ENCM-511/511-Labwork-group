@@ -58,7 +58,7 @@ void run_controller(void);
 /* clock_init: configure the device to run at FCY = 4 MHz.
  * Datasheet ref: Section 9.1, Register 9-2 (CLKDIV). */
 void clock_init(void) {
-    CLKDIVbits.RCDIV = 0;   // Change this to run at 4 MHz (CLK divides by 1)   [CLK source is FRC]
+    CLKDIVbits.RCDIV = 0;   // Change this to run at 4 MHz (CLK divides by 1)
 }
 
 
