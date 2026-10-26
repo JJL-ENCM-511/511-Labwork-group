@@ -110,28 +110,40 @@ void timer_init(void) {
     T2CON = 0;                  // DO NOT CHANGE 
     TMR2  = 0;                  // DO NOT CHANGE 
 
-    // Tcy (time per clk period is 31.25ns) (Multiply by 1)
-    PR2               = (10*10**-3 / (31.25 * 10**-9)) * (1 / (FCY * 8));      // period register (Tcy = 1/[Fcy * Prescalar] Multiply this value by PR2 to get 10ms)   
+    // Tcy = 2.5ns (Time per tick = Tcy * Prescalar =  2us) (Multiply by 5000 get to 10ms)
+    PR2               = 5000    // Takes 5000 ticks to get to 10ms
     T2CONbits.TCKPS   = 1;      // prescaler select (1:8)  
     T2CONbits.TCS     = 0;      // clock source (Frc = 8MHz meaning Fcy = 4MHz [Assuming PLL is 1])       
     T2CONbits.T32     = 0;      // timer width  (16-Bit Mode)      
 
     IFS0bits.T2IF     = 0;      // DO NOT CHANGE      
-    IPC1bits.T2IP     = ?;      // Timer2 priority    
-    IEC0bits.T2IE     = 1;      // interrupt enable   
+    IPC1bits.T2IP     = 2;      // Timer2 priority    
+    IEC0bits.T2IE     = 1;      // interrupt enable 
     T2CONbits.TON     = 1;      // start timer        
 }
 
 
 /* pwm_init: configure OC1 in edge-aligned PWM mode on RB13 (ENB).
  * Implement from scratch.
- *   - RB13 has an analog function that must be disabled before digital use.
- *   - OC1 must be routed to RB13 via the PPS system.
- *   - Set OC1RS for a 10 kHz PWM frequency.
- *   - Set the OCM bits to enable edge-aligned PWM mode.
+ *   - RB13 has an analog function that must be disabled before digital use. -
+ *   - OC1 must be routed to RB13 via the PPS system. -
+ *   - Set OC1RS for a 10 kHz PWM frequency. -
+ *   - Set the OCM bits to enable edge-aligned PWM mode. -
  * Datasheet ref: Sections 11.5 (PPS) and 15.3 (Output Compare). */
 void pwm_init(void) {
-    // your code here 
+    ANSELBbits.ANSELB13 = 0;        // Disable RB13 Analog input and Digital input/output is enabled
+    TRISBbits.TRISB13 = 0;          // Enable RB13 Digital output
+    LATBbits.LATB13 = 0;            // Send RB13 a 0 initially
+
+    RPOR6bits.RP13R = 13;           // Connect Output Compare Tigger 1 to RB13 (Pin 24)
+
+    OC1CON1 = 0; OC1CON2 = 0;       // Initialize output compare to 0 explicitly 
+    OC1R = 0;                       // So motor starts out stopped
+    OC1RS = PWM_MAX;                // Set OC1RS to the proper value to get 10kHz PWM frequency
+    OC1CON1bits.OCTSEL = 0b111;     // Uses the clock in the clock_init function (Fcy = 4MHz)
+
+    OC1CON1bits.OCM = 0b110;        // Enable edge aligned PWM mode of OC1
+    
 }
 
 
