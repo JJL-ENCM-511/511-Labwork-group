@@ -5,3 +5,4 @@ cmake/
 out/
 Lab3/Lab3/.vscode/settings.json
 lab4/.vscode/lab4.mplab.json
+.vscode/settings.json
