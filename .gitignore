@@ -5,3 +5,14 @@ cmake/
 out/
 .vscode/settings.json
 lab4/.vscode/lab4.mplab.json
+
+.generated_files/
+build/
+dist/
+nbproject/
+Makefile*
+Package-*
+private/
+!cmake/**/user.cmake
+cmake/**/.generated/*
+cmake/**/CMake*
