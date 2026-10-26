@@ -26,6 +26,7 @@
 
 #include <xc.h>
 #include <stdint.h>
+#include <stdlib.h>
 
 #pragma config FNOSC=FRC, POSCMD=NONE, OSCIOFCN=ON, FCKSM=CSDCMD
 #pragma config IOL1WAY=OFF, FWDTEN=OFF, JTAGEN=OFF
@@ -153,9 +154,33 @@ void pwm_init(void) {
  *   control = 0  ->  stopped
  * Clear both direction pins before setting the new direction.
  * The duty cycle written to OC1R must be non-negative and clamped to PWM_MAX. */
-void set_motor_pwm(int32_t control) {
+void set_motor_pwm(int32_t control) { // control in % (from -100 to 100)
     int32_t magnitude;
     // your code here 
+    magnitude = abs(control);
+    int32_t duty = (magnitude * (int32_t)PR2) / 100;
+    OC1RS = 0;
+    LATBbits.LATB10 = 0;
+    LATBbits.LATB11 = 0;
+    // clear in3, in4
+    if (control > 0) // CW
+    {
+        LATBbits.LATB10 = 1;
+        LATBbits.LATB11 = 0;
+    }
+    else if (control < 0) // CCW
+    {
+        LATBbits.LATB10 = 0;
+        LATBbits.LATB11 = 1;
+    }
+    else //OFF
+    {
+        LATBbits.LATB10 = 0;
+        LATBbits.LATB11 = 0;
+    }
+
+    if (magnitude >= 100) OC1RS = PR2;
+    else OC1RS = duty;
 }
 
 
