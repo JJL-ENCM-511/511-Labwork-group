@@ -204,6 +204,16 @@ void run_controller(void) {
     __builtin_disi(0x0000);         // DO NOT CHANGE
 
     // write your control algorithm here
+
+    //Calculate error
+    error = REFERENCE - position;
+
+    //Calculate control output
+    u = (KP_Q8 * error) >> 8;
+
+    //Set motor PWM
+    set_motor_pwm(u);
+
 }
 
 
