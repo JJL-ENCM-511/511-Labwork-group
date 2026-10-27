@@ -112,7 +112,7 @@ void timer_init(void) {
     TMR2  = 0;                  // DO NOT CHANGE 
 
     // Tcy = 2.5ns (Time per tick = Tcy * Prescalar =  2us) (Multiply by 5000 get to 10ms)
-    PR2               = 5000    // Takes 5000 ticks to get to 10ms
+    PR2               = 5000;    // Takes 5000 ticks to get to 10ms
     T2CONbits.TCKPS   = 1;      // prescaler select (1:8)  
     T2CONbits.TCS     = 0;      // clock source (Frc = 8MHz meaning Fcy = 4MHz [Assuming PLL is 1])       
     T2CONbits.T32     = 0;      // timer width  (16-Bit Mode)      
