@@ -3,9 +3,14 @@ _build/
 cmake/
 
 out/
+<<<<<<< HEAD
 Lab3/Lab3/.vscode/settings.json
 lab4/.vscode/lab4.mplab.json
 .vscode/settings.json
+=======
+.vscode/settings.json
+lab4/.vscode/lab4.mplab.json
+>>>>>>> origin/Lab4-prelab
 
 .generated_files/
 build/

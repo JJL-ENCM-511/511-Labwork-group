@@ -107,9 +107,12 @@ int main(void) {
     _LATB5 = 1;
     
     InitUART2();
+
+    uint16_t i = 1;
     
     while(1) {
     
+<<<<<<< HEAD
 #ifdef TESTSTATE     // Testing State Switching Code
         LED0 = 0;
         LED1 = 0;
@@ -122,6 +125,11 @@ int main(void) {
             PB1_event = 0; // Reset PB1 trigger 
             PB2_event = 0; // Reset PB2 trigger
             switch_state_flag = 1; // Set flag to switch state
+=======
+#ifdef TESTSEND
+        XmitUART2(i,5);
+        XmitUART2('\n',5);
+>>>>>>> origin/Lab4-prelab
         
             if(current_mode == Fast_Idle){
                 current_mode = Prog_Idle;
@@ -132,6 +140,7 @@ int main(void) {
                 event_state = Fast_Idle;
             }
         }
+<<<<<<< HEAD
 
         if(PB0_event) {     // Blinks for 0.25s, or 3s depending on mode
             PB0_event = 0; // Reset PB0 trigger
@@ -222,6 +231,9 @@ int main(void) {
         Idle();
     }
 
+=======
+        i++;
+>>>>>>> origin/Lab4-prelab
 #endif
         
 #ifndef TESTSEND    // Actual assignment code

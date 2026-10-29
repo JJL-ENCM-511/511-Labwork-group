@@ -26,6 +26,10 @@
 
 #include <xc.h>
 #include <stdint.h>
+<<<<<<< HEAD
+=======
+#include <stdlib.h>
+>>>>>>> origin/Lab4-prelab
 
 #pragma config FNOSC=FRC, POSCMD=NONE, OSCIOFCN=ON, FCKSM=CSDCMD
 #pragma config IOL1WAY=OFF, FWDTEN=OFF, JTAGEN=OFF
@@ -58,7 +62,11 @@ void run_controller(void);
 /* clock_init: configure the device to run at FCY = 4 MHz.
  * Datasheet ref: Section 9.1, Register 9-2 (CLKDIV). */
 void clock_init(void) {
+<<<<<<< HEAD
     CLKDIVbits.RCDIV = ??;   // Change this to run at 4 MHz (CLK divides by 1)
+=======
+    CLKDIVbits.RCDIV = 0;   // Change this to run at 4 MHz (CLK divides by 1)
+>>>>>>> origin/Lab4-prelab
 }
 
 
@@ -67,7 +75,23 @@ void clock_init(void) {
  * Output Pins: RB10, RB11, RB13
  * Note: RB13 is configured in pwm_init() -- do not touch it here. */
 void gpio_init(void) {
+<<<<<<< HEAD
     // your code here 
+=======
+    
+    ANSELA = 0x0000; /* keep this line as it sets I/O pins that can also be analog to be digital */
+    ANSELB = 0x0000; /* keep this line as it sets I/O pins that can also be analog to be digital */
+
+    TRISBbits.TRISB10 = 0; //
+    TRISBbits.TRISB11 = 0; //set RB10 and RB11 as output 
+
+    TRISBbits.TRISB7 = 1; //
+    TRISBbits.TRISB8 = 1; //set RB7 and RB8 as input
+
+    IOCPUBbits.CNPUB7 = 1; //
+    IOCPUBbits.CNPUB8 = 1; //activate pullup for RB7 and RB8
+
+>>>>>>> origin/Lab4-prelab
 }
 
 
@@ -77,16 +101,26 @@ void gpio_init(void) {
 void encoder_init(void) {
     PADCONbits.IOCON   = 0;     // disable IOC while configuring -- DO NOT CHANGE 
 
+<<<<<<< HEAD
     IOCPBbits.IOCPB7   = ??;     // enable rising edge on RB7  
     IOCNBbits.IOCNB7   = ??;     // disable falling edge on RB7  
+=======
+    IOCPBbits.IOCPB7   = 1;     // enable rising edge on RB7  
+    IOCNBbits.IOCNB7   = 0;     // disable falling edge on RB7  
+>>>>>>> origin/Lab4-prelab
 
     IOCFB              = 0;     // DO NOT CHANGE 
     IOCSTATbits.IOCPBF = 0;     // DO NOT CHANGE 
     PADCONbits.IOCON   = 1;     // DO NOT CHANGE 
     IFS1bits.IOCIF     = 0;     // DO NOT CHANGE 
 
+<<<<<<< HEAD
     IPC4bits.IOCIP     = ??;     // IOC priority  
     IEC1bits.IOCIE     = ??;     // IOC interrupt enable 
+=======
+    IPC4bits.IOCIP     = 3;     // IOC priority  
+    IEC1bits.IOCIE     = 1;     // IOC interrupt enable 
+>>>>>>> origin/Lab4-prelab
 }
 
 
@@ -98,6 +132,7 @@ void timer_init(void) {
     T2CON = 0;                  // DO NOT CHANGE 
     TMR2  = 0;                  // DO NOT CHANGE 
 
+<<<<<<< HEAD
     PR2               = ??;      // period register    
     T2CONbits.TCKPS   = ??;   // prescaler select   
     T2CONbits.TCS     = ??;      // clock source       
@@ -107,11 +142,24 @@ void timer_init(void) {
     IPC1bits.T2IP     = ??;      // Timer2 priority    
     IEC0bits.T2IE     = ??;      // interrupt enable   
     T2CONbits.TON     = ??;      // start timer        
+=======
+    // Tcy = 2.5ns (Time per tick = Tcy * Prescalar =  2us) (Multiply by 5000 get to 10ms)
+    PR2               = 5000;    // Takes 5000 ticks to get to 10ms
+    T2CONbits.TCKPS   = 1;      // prescaler select (1:8)  
+    T2CONbits.TCS     = 0;      // clock source (Frc = 8MHz meaning Fcy = 4MHz [Assuming PLL is 1])       
+    T2CONbits.T32     = 0;      // timer width  (16-Bit Mode)      
+
+    IFS0bits.T2IF     = 0;      // DO NOT CHANGE      
+    IPC1bits.T2IP     = 2;      // Timer2 priority    
+    IEC0bits.T2IE     = 1;      // interrupt enable 
+    T2CONbits.TON     = 1;      // start timer        
+>>>>>>> origin/Lab4-prelab
 }
 
 
 /* pwm_init: configure OC1 in edge-aligned PWM mode on RB13 (ENB).
  * Implement from scratch.
+<<<<<<< HEAD
  *   - RB13 has an analog function that must be disabled before digital use.
  *   - OC1 must be routed to RB13 via the PPS system.
  *   - Set OC1RS for a 10 kHz PWM frequency.
@@ -119,6 +167,27 @@ void timer_init(void) {
  * Datasheet ref: Sections 11.5 (PPS) and 15.3 (Output Compare). */
 void pwm_init(void) {
     // your code here 
+=======
+ *   - RB13 has an analog function that must be disabled before digital use. -
+ *   - OC1 must be routed to RB13 via the PPS system. -
+ *   - Set OC1RS for a 10 kHz PWM frequency. -
+ *   - Set the OCM bits to enable edge-aligned PWM mode. -
+ * Datasheet ref: Sections 11.5 (PPS) and 15.3 (Output Compare). */
+void pwm_init(void) {
+    ANSELBbits.ANSELB13 = 0;        // Disable RB13 Analog input and Digital input/output is enabled
+    TRISBbits.TRISB13 = 0;          // Enable RB13 Digital output
+    LATBbits.LATB13 = 0;            // Send RB13 a 0 initially
+
+    RPOR6bits.RP13R = 13;           // Connect Output Compare Tigger 1 to RB13 (Pin 24)
+
+    OC1CON1 = 0; OC1CON2 = 0;       // Initialize output compare to 0 explicitly 
+    OC1R = 0;                       // So motor starts out stopped
+    OC1RS = PWM_MAX;                // Set OC1RS to the proper value to get 10kHz PWM frequency
+    OC1CON1bits.OCTSEL = 0b111;     // Uses the clock in the clock_init function (Fcy = 4MHz)
+
+    OC1CON1bits.OCM = 0b110;        // Enable edge aligned PWM mode of OC1
+    
+>>>>>>> origin/Lab4-prelab
 }
 
 
@@ -128,9 +197,39 @@ void pwm_init(void) {
  *   control = 0  ->  stopped
  * Clear both direction pins before setting the new direction.
  * The duty cycle written to OC1R must be non-negative and clamped to PWM_MAX. */
+<<<<<<< HEAD
 void set_motor_pwm(int32_t control) {
     int32_t magnitude;
     // your code here 
+=======
+void set_motor_pwm(int32_t control) { // control in % (from -100 to 100)
+    int32_t magnitude;
+    // your code here 
+    magnitude = abs(control);
+    int32_t duty = (magnitude * (int32_t)PR2) / 100;
+    OC1RS = 0;
+    LATBbits.LATB10 = 0;
+    LATBbits.LATB11 = 0;
+    // clear in3, in4
+    if (control > 0) // CW
+    {
+        LATBbits.LATB10 = 1;
+        LATBbits.LATB11 = 0;
+    }
+    else if (control < 0) // CCW
+    {
+        LATBbits.LATB10 = 0;
+        LATBbits.LATB11 = 1;
+    }
+    else //OFF
+    {
+        LATBbits.LATB10 = 0;
+        LATBbits.LATB11 = 0;
+    }
+
+    if (magnitude >= 100) OC1RS = PR2;
+    else OC1RS = duty;
+>>>>>>> origin/Lab4-prelab
 }
 
 
@@ -154,6 +253,19 @@ void run_controller(void) {
     __builtin_disi(0x0000);         // DO NOT CHANGE
 
     // write your control algorithm here
+<<<<<<< HEAD
+=======
+
+    //Calculate error
+    error = REFERENCE - position;
+
+    //Calculate control output
+    u = (KP_Q8 * error) >> 8;
+
+    //Set motor PWM
+    set_motor_pwm(u);
+
+>>>>>>> origin/Lab4-prelab
 }
 
 
@@ -164,13 +276,29 @@ void run_controller(void) {
  *   - Clear flags in this exact order: IOCFB7 -> IOCPBF -> IOCIF.
  * No function calls, UART, or delays inside this ISR. */
 void __attribute__((interrupt, no_auto_psv)) _IOCInterrupt(void) {
+<<<<<<< HEAD
     // your code here 
+=======
+    if (IOCFBbits.IOCFB7)
+    {
+        if (PORTBbits.RB8) encoder_count ++;    
+        else encoder_count --;
+        IOCFBbits.IOCFB7 = 0;
+    }
+
+    IOCSTATbits.IOCPBF = 0;
+    IFS1bits.IOCIF = 0;
+>>>>>>> origin/Lab4-prelab
 }
 
 
 /* _T2Interrupt: DO NOT MODIFY. */
 void __attribute__((interrupt, no_auto_psv)) _T2Interrupt(void) {
+<<<<<<< HEAD
     control_flag  = 1;
+=======
+    control_flag  = 1;  //Flag indicating 0.001 
+>>>>>>> origin/Lab4-prelab
     IFS0bits.T2IF = 0;
 }
 
@@ -182,9 +310,20 @@ void __attribute__((interrupt, no_auto_psv)) _T2Interrupt(void) {
  * timer_init() must be last: starting Timer2 before other peripherals are
  * configured means _T2Interrupt can fire before PWM and the encoder are ready. */
 int main(void) {
+<<<<<<< HEAD
     IFS0 = 0; IFS1 = 0; IFS2 = 0; IFS3 = 0; IFS4 = 0;
 
     // your initialisation calls here 
+=======
+    // Initalization calls here (interrupt flags preliminarly )
+    IFS0 = 0; IFS1 = 0; IFS2 = 0; IFS3 = 0; IFS4 = 0;
+    clock_init();
+    gpio_init();
+    pwm_init();
+    encoder_init();
+    timer_init();
+
+>>>>>>> origin/Lab4-prelab
 
     while (1) {
         // your code here
